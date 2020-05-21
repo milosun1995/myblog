@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>Fixed Menu Example - Semantic</title>
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  
+  
+  <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+  <style type="text/css">
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .m-padded-mini {
+    padding: 0.2em !important;
+	
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  
+  .m-padded-tb-big{
+    padding-top: 5em !important;
+    padding-bottom: 3em !important;
+  }
+  
+  .m-container {
+    max-width: 72em !important;
+    margin: auto !important;
+  }
+  .m-right-top {
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+  .m-mobile-show {
+    display: none !important;
+  }
+
+  /*------shadow------*/
+  .m-shadow-small {
+	 -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+	 box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+  }
+	
+  @media screen and (max-width: 768px){
+    .m-mobile-hide {
+        display: none !important;
+    }
+	.m-mobile-show {
+        display: block !important;
+    }
+  }
+  </style>
+
+</head>
+<body class="">
+	<!-- Menu -->
+	<nav class="ui attached segment m-padded-mini m-shadow-small">
+	  <div class="ui container">
+	    <div class="ui secondary stackable menu">
+		  <h3 class="ui twitter header item">云淡风轻 Blog </h3>
+		  <div class="header item">
+			<img class="logo" src="assets/images/logo.png">
+		  </div>
+		  <a href="#" class="m-item item m-mobile-hide active">首页</a>
+		  <a href="./filed.html" class="m-item item m-mobile-hide">归档</a>
+		  <a href="#" class="m-item item m-mobile-hide">工具</a>
+		  <a href="#" class="m-item item m-mobile-hide">留言</a>
+		  <a href="#" class="m-item item m-mobile-hide">关于</a>
+		  <div class="m-item right item m-mobile-hide">
+			  <div class="ui icon input">
+				  <input type="text" placeholder="Search...">
+				  <i class="circular search icon"></i>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+	  </a>
+	</nav>
+	
+	<!-- middle -->
+	<div class="m-container m-padded-tb-big">
+	   <div class ="ui container">
+	     <div class ="ui stackable grid">
+		    <div class ="eleven wide column">
+				 <!-- header -->
+				<div class ="ui top attached segment" >
+					<div class = "ui top attached" >
+						<div class="ui middle aligned two column grid">
+								<div class="column">
+									<h2 class="ui blue header">博客</h2>
+								</div>
+								<div class="right aligned column">
+									<div class="ui teal label">
+									  Total
+									  <div class="detail">214</div>
+									</div>
+								</div>
+							</div>
+					 </div>
+				</div>
+				<!-- content -->
+				<div class="ui relaxed divided items">
+				   <div class="item">
+					  <div class="ui small image">
+						<img src="assets/images/wireframe/image.png">
+					  </div>
+					  <div class="content">
+						<a class="header">Content Header</a>
+						<div class="meta">
+						  <a>
+							<i class="calendar icon"></i> 
+							<span>2020/05/20 10:15</span>
+						  </a>
+						  <a>
+							<i class="eye icon"></i> 
+							<span>256</span>
+						  </a>
+						</div>
+						<div class="description">
+						  A description which may flow for several lines and give context to the content.
+						</div>
+						<div class="extra">
+							<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
+							<span>Username</span>
+							<a href="#" class="ui teal basic right floated label">
+								<i class="sort icon"></i>
+								<span>动漫学习</span>
+							</a>
+						</div>
+						<div class="extra">
+							<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
+							<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+						</div>
+					  </div>
+				  </div>
+				   <div class="item">
+					  <div class="ui small image">
+						<img src="assets/images/wireframe/image.png">
+					  </div>
+					  <div class="content">
+						<a class="header">Content Header</a>
+						<div class="meta">
+						  <a>
+							<i class="calendar icon"></i> 
+							<span>2020/05/20 10:15</span>
+						  </a>
+						  <a>
+							<i class="eye icon"></i> 
+							<span>256</span>
+						  </a>
+						</div>
+						<div class="description">
+						  A description which may flow for several lines and give context to the content.
+						</div>
+						<div class="extra">
+							<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
+							<span>Username</span>
+							<a href="#" class="ui teal basic right floated label">
+								<i class="sort icon"></i>
+								<span>动漫学习</span>
+							</a>
+						</div>
+						<div class="extra">
+							<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
+							<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+						</div>
+					  </div>
+				  </div>
+				   <div class="item">
+					  <div class="ui small image">
+						<img src="assets/images/wireframe/image.png">
+					  </div>
+					  <div class="content">
+						<a class="header">Content Header</a>
+						<div class="meta">
+						  <a>
+							<i class="calendar icon"></i> 
+							<span>2020/05/20 10:15</span>
+						  </a>
+						  <a>
+							<i class="eye icon"></i> 
+							<span>256</span>
+						  </a>
+						</div>
+						<div class="description">
+						  A description which may flow for several lines and give context to the content.
+						</div>
+						<div class="extra">
+							<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
+							<span>Username</span>
+							<a href="#" class="ui teal basic right floated label">
+								<i class="sort icon"></i>
+								<span>动漫学习</span>
+							</a>
+						</div>
+						<div class="extra">
+							<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
+							<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+						</div>
+					  </div>
+				  </div>
+				   <div class="item">
+					  <div class="ui small image">
+						<img src="assets/images/wireframe/image.png">
+					  </div>
+					  <div class="content">
+						<a class="header">Content Header</a>
+						<div class="meta">
+						  <a>
+							<i class="calendar icon"></i> 
+							<span>2020/05/20 10:15</span>
+						  </a>
+						  <a>
+							<i class="eye icon"></i> 
+							<span>256</span>
+						  </a>
+						</div>
+						<div class="description">
+						  A description which may flow for several lines and give context to the content.
+						</div>
+						<div class="extra">
+							<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
+							<span>Username</span>
+							<a href="#" class="ui teal basic right floated label">
+								<i class="sort icon"></i>
+								<span>动漫学习</span>
+							</a>
+						</div>
+						<div class="extra">
+							<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
+							<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+						</div>
+					  </div>
+				  </div>
+				   <div class="item">
+					  <div class="ui small image">
+						<img src="assets/images/wireframe/image.png">
+					  </div>
+					  <div class="content">
+						<a class="header">Content Header</a>
+						<div class="meta">
+						  <a>
+							<i class="calendar icon"></i> 
+							<span>2020/05/20 10:15</span>
+						  </a>
+						  <a>
+							<i class="eye icon"></i> 
+							<span>256</span>
+						  </a>
+						</div>
+						<div class="description">
+						  A description which may flow for several lines and give context to the content.
+						</div>
+						<div class="extra">
+							<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
+							<span>Username</span>
+							<a href="#" class="ui teal basic right floated label">
+								<i class="sort icon"></i>
+								<span>动漫学习</span>
+							</a>
+						</div>
+						<div class="extra">
+							<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
+							<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+						</div>
+					  </div>
+				  </div>
+				</div>
+				<!-- footer -->
+				<div class="ui pagination menu">
+				  <a class="icon item">
+					<i class="left arrow icon"></i>
+				  </a>
+				  <a class="active item">
+					1
+				  </a>
+				  <div class="disabled item">
+					...
+				  </div>
+				  <a class="item">
+					10
+				  </a>
+				  <a class="item">
+					11
+				  </a>
+				  <a class="item">
+					12
+				  </a>
+				  <a class="icon item">
+					<i class="right arrow icon"></i>
+				  </a>
+				</div>
+			</div>
+		  <!-- Right -->
+		  <div class ="five wide column"> 
+			<!--分类-->
+			<div class="ui segments ">
+				<div class="ui secondary segment">
+					<div class="ui two column grid">
+						<div class="column">
+							<i class="sort icon"></i>分类
+						</div>
+						<div class="right aligned column">
+							<a href="#" target="_blank">more<i class="angle double right icon"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="ui blue segment ">
+					<div class="ui fluid vertical menu" >
+						<a href="/types/6" target="_blank" class="item" >
+							<span>动漫方法</span>
+							<div class="ui teal basic left pointing label">2</div>
+						</a><a href="/types/1" target="_blank" class="item" >
+							<span>学习方法</span>
+							<div class="ui teal basic left pointing label">4</div>
+						</a><a href="/types/5" target="_blank" class="item" >
+							<span>哈哈方法</span>
+							<div class="ui teal basic left pointing label">1</div>
+						</a><a href="/types/3" target="_blank" class="item" >
+							<span>娱乐方法</span>
+							<div class="ui teal basic left pointing label">1</div>
+						</a><a href="/types/4" target="_blank" class="item" >
+							<span>钓鱼方法</span>
+							<div class="ui teal basic left pointing label">1</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- 标签 -->
+			<div class="ui segments ">
+				<div class="ui secondary segment">
+					<div class="ui two column grid">
+						<div class="column">
+							<i class="tag icon"></i>标签
+						</div>
+						<div class="right aligned column">
+							<a href="types/-1" target="_blank">more <i class="angle double right icon"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="ui blue segment ">
+					<div class="ui labels" >
+						<a class="ui blue label">Java</a>
+						<a class="ui blue label">SpringBoot</a>
+						<a class="ui blue label">Linux</a>
+						<a class="ui blue label">UI</a>
+						<a class="ui blue label">PMP</a>
+					</div>
+				</div>
+			</div>
+			<!-- 热门推荐 -->
+			<div class="ui segments ">
+				<div class="ui secondary segment">
+					<div class="ui two column grid">
+						<div class="column">
+							<i class=" sticky note icon "></i>热门推荐
+						</div>
+						<div class="right aligned column">
+							<a href="types/-1" target="_blank">more <i class="angle double right icon"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="ui blue segment ">
+				  <div class="ui divided middle aligned animated selection list">
+					<div class="item">
+						<div class="content">
+						  <div class="header">
+							Content Header
+						  </div>
+						</div>
+					</div>
+					  <div class="item">
+						<div class="content">
+						  <div class="header">
+							Content Header
+						  </div>
+						</div>
+					  </div>
+					  <div class="item">
+						<div class="content">
+						  <div class="header">
+							Content Header
+						  </div>
+						</div>
+					  </div>
+					  <div class="item">
+						<div class="content">
+						  <div class="header">
+							Content Header
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	     </div>
+       </div>
+    </div>
+	<!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+        <div class="three wide column">
+          <div class="ui inverted link list">
+			<div class="item" >
+				<image src="assets/images/二维码图片01.png" class="ui small rounded image "		/>
+			</div>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="assets/images/logo.png" class="ui centered mini image">
+      <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  
+ <script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+</body>
+</html>

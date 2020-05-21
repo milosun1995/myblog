@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--title为传参-->
+<head th:fragment="head(title)"> 	
+	<!-- Standard Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Site Properties -->
+	<title th:replace="${title}">首页</title>
+	<!-- Semantic-UI CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	<!-- MyBlog Visitor CSS -->
+	<link rel="stylesheet" href="../static/css/visitor.css" th:href="@{/css/visitors.css}">
+	<!-- JS -->
+	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+</head>
+<body>
+	<!--头部导航-->
+	<nav th:fragment="menu(n)" class="ui attached segment m-padded-mini m-shadow-small">
+		<div class="ui container">
+			<div class="ui secondary stackable menu">
+				<h3 class="ui twitter header item">云淡风轻 Blog</h3>
+				<div class="header item">
+					<img class="logo" src="assets/images/logo.png">
+				</div>
+				<a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1}?'active'" >
+					<i class=" home icon"></i>
+					<span>首页</span>
+				</a> 
+				<a href="#" th:href="@{/archives/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}?'active'">
+					<i class=" clone icon"></i>
+					<span>归档</span>
+				</a> 
+				<a href="#" class="m-item item m-mobile-hide">工具</a> 
+				<a href="#" class="m-item item m-mobile-hide">留言</a> 
+				<a href="#" class="m-item item m-mobile-hide">关于</a>
+				<div class="m-item right item m-mobile-hide">
+					<div class="ui icon input">
+						<input type="text" placeholder="Search...">
+						<i class="circular search icon"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+		</a>
+	</nav>
+
+	<!-- Footer -->
+	<footer th:fragment="footer" class="ui inverted vertical footer segment">
+		<div class="ui center aligned container">
+			<div class="ui stackable inverted divided grid">
+				<div class="three wide column">
+					<div class="ui inverted link list">
+						<div class="item">
+							<image src="assets/images/二维码图片01.png" class="ui small rounded image " />
+						</div>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">Group 2</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Link One</a> 
+						<a href="#" class="item">Link Two</a> 
+						<a href="#" class="item">Link Three</a> 
+						<a href="#" class="item">Link Four</a>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">Group 3</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Link One</a> 
+						<a href="#" class="item">Link Two</a> 
+						<a href="#" class="item">Link Three</a> 
+						<a href="#" class="item">Link Four</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Footer Header</h4>
+					<p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<img src="assets/images/logo.png" class="ui centered mini image">
+			<div class="ui horizontal inverted small divided link list">
+				<a class="item" href="#">Site Map</a>
+				<a class="item" href="#">Contact Us</a> 
+				<a class="item" href="#">Terms and Conditions</a> 
+				<a class="item" href="#">Privacy Policy</a>
+			</div>
+		</div>
+	</footer>
+
+	<th:block th:fragment="script">
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+		<!-- 自适应菜单 -->
+		<script>
+			$('.menu.toggle').click(function() {
+				$('.m-item').toggleClass('m-mobile-hide');
+			});
+		</script>
+	</th:block>
+</body>
+</html>
