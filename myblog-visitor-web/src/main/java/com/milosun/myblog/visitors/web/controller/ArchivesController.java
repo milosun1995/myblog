@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * 归档控制器
+ * 归档 - 控制器
  * @author MiloSun
  *
  */
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ArchivesController {
 
 	@GetMapping("/archives/{id}")
-	public String index(@PathVariable Long id,Model model) {
+	public String showArchives(@PathVariable Long id,Model model) {
 		System.out.println("Into archives~~ "+id);
 		return "archives";
 	}

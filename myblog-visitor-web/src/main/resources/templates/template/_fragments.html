@@ -7,19 +7,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Site Properties -->
 	<title th:replace="${title}">首页</title>
+	<link href="https://unpkg.com/animate.css@3.5.2/animate.min.css" rel="stylesheet">
 	<!-- Semantic-UI CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
 	<!-- MyBlog Visitor CSS -->
 	<link rel="stylesheet" href="../static/css/visitor.css" th:href="@{/css/visitors.css}">
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+	
 </head>
 <body>
 	<!--头部导航-->
 	<nav th:fragment="menu(n)" class="ui attached segment m-padded-mini m-shadow-small">
 		<div class="ui container">
 			<div class="ui secondary stackable menu">
-				<h3 class="ui twitter header item">云淡风轻 Blog</h3>
+				<h3 class="ui twitter header item">云淡风轻</h3>
 				<div class="header item">
 					<img class="logo" src="assets/images/logo.png">
 				</div>

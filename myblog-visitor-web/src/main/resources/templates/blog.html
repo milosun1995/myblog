@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/_fragments :: head(~{::title})">
+    <title>博客详情</title>
+</head>
+<body>
+	<!--头部导航-->
+	<nav  th:replace="template/_fragments :: menu(1)" ></nav>
+
+	<!--中间内容-->
+	<div class="m-container m-padded-tb-big animated fadeIn">
+		<div class="ui container">
+			<div class="ui stackable grid">
+				<div class ="eleven wide column">
+					<!-- 标题头 -->
+					<div class="ui top attached  segment">
+						<h2 class="ui center aligned header">Docker 服务启动,重启,关闭命令</h2>
+						<div class="ui center aligned basic segment">
+							<div class="ui horizontal link list">
+								<div class="item">
+									<img src="assets/images/二维码图片01.png" alt="" class="ui avatar image">
+									<div class="content"><a href="#" class="header">云淡风轻</a></div>
+								</div>
+								<div class="item">
+									<i class="calendar icon"></i> <span>2020-04-20</span>
+								</div>
+								<div class="item">
+									<i class="eye icon"></i> <span>297</span>
+								</div>
+								<div class="item">
+									<div class="ui orange basic label">原创</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!--中间主要内容部分-->
+					<div class="ui segment">
+						<div id="content" class="ui typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large basic segment">
+							<h2 id="反射框架设计的灵魂">反射：框架设计的灵魂</h2>
+							<h2 id="一反射">一、反射</h2>
+							<h2 id="11-框架"><em><strong>1.1 框架</strong></em></h2>
+							<p>半成品软件。可以在框架的基础上进行软件开发，简化编码。学习框架并不需要了解反射，但是要是想自己写一个框架，那么就要对反射机制有很深入的了解。</p>
+							<h2 id="12-反射"><em><strong>1.2 反射</strong></em></h2>
+							<p>反射机制：将类的各个组成部分封装为其他对象，这就是反射机制。</p>
+							<p>反射的好处：
+							1.可以在程序运行过程中，操作这些对象。
+							2.可以解耦，提高程序的可扩展性。</p>
+							<p>Java代码在计算机中经历的三个阶段
+							（1）Source源代码阶段：<em>.java被编译成</em>.class字节码文件。
+							（2）Class类对象阶段：*.class字节码文件被类加载器加载进内存，并将其封装成Class对象（用于在内存中描述字节码文件），Class对象将原字节码文件中的成员变量抽取出来封装成数组Field[],将原字节码文件中的构造函数抽取出来封装成数组Construction[]，在将成员方法封装成Method[]。当然Class类内不止这三个，还封装了很多，我们常用的就这三个。
+							（3）RunTime运行时阶段：创建对象的过程new。
+						</div>
+						
+						
+						
+						<!-- 标签 -->
+						<div class="ui top aligned basic segment">
+							<div class="ui labels">
+								<a class="ui blue  label">Java</a>
+								<a class="ui blue  label">SpringBoot</a>
+								<a class="ui blue  label">Linux</a>
+							</div>
+						</div>
+						
+						
+						<!--赞赏-->
+						<div>
+							<div class="ui center aligned basic segment">
+								<button id="payButton" class="ui orange basic circular button">赞赏</button>
+							</div>
+							<div class="ui  flowing popup transition hidden">
+								<div class="ui orange basic label">
+									<div class="ui images" style="font-size: inherit !important;">
+										<div class="image">
+											<img src="/images/alipay.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+											<div>支付宝</div>
+										</div>
+										<div class="image">
+											<img src="/images/wechat.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+											<div>微信</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 博文信息 -->
+					<div class="ui attached positive message">
+						<div class="ui middle aligned grid">
+							<div class="eleven wide column">
+								<div class="ui bulleted list">
+									<div class="item">作者：云淡风轻</div>
+									<div class="item">发布日期：2020/05/24 15:10</div>
+									<div class="item">版权声明：xxx</div>
+								</div>
+							</div>
+							
+							<div class=" five wide column">
+								<image src="assets/images/二维码图片01.png" class="ui right tiny floated rounded bordered image"/>
+							
+							</div>
+							
+						</div>
+					</div>
+					
+					<!-- 翻页 --> 
+					<div class="ui  segment">
+	                    <div class="ui middle aligned two column grid">
+	                        <div class="column">
+	                            <div class="item"><a class="ui mini red basic button" ><< 上一页</a></div>
+	                        </div>
+	                        <div class="right aligned column" >
+	                            <div class="item"><a class="ui mini red basic button" >下一页 >></a></div>
+	                        </div>
+	                    </div>
+					</div>
+					
+					<!-- 评论 -->
+					<div class="ui segment">
+					<div class="ui comments">
+					  <h3 class="ui blue dividing header">评论</h3>
+					  <div class="comment">
+						<a class="avatar">
+						  <img src="../images/avatar/small/matt.jpg">
+						</a>
+						<div class="content">
+						  <a class="author">Matt</a>
+						  <div class="metadata">
+							<span class="date">Today at 5:42PM</span>
+						  </div>
+						  <div class="text">
+							How artistic!
+						  </div>
+						  <div class="actions">
+							<a class="reply">Reply</a>
+						  </div>
+						</div>
+					  </div>
+					  <div class="comment">
+						<a class="avatar">
+						  <img src="../images/avatar/small/elliot.jpg">
+						</a>
+						<div class="content">
+						  <a class="author">Elliot Fu</a>
+						  <div class="metadata">
+							<span class="date">Yesterday at 12:30AM</span>
+						  </div>
+						  <div class="text">
+							<p>This has been very useful for my research. Thanks as well!</p>
+						  </div>
+						  <div class="actions">
+							<a class="reply">Reply</a>
+						  </div>
+						</div>
+						<div class="comments">
+						  <div class="comment">
+							<a class="avatar">
+							  <img src="../images/avatar/small/jenny.jpg">
+							</a>
+							<div class="content">
+							  <a class="author">Jenny Hess</a>
+							  <div class="metadata">
+								<span class="date">Just now</span>
+							  </div>
+							  <div class="text">
+								Elliot you are always so right :)
+							  </div>
+							  <div class="actions">
+								<a class="reply">Reply</a>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					  <div class="comment">
+						<a class="avatar">
+						  <img src="../images/avatar/small/joe.jpg">
+						</a>
+						<div class="content">
+						  <a class="author">Joe Henderson</a>
+						  <div class="metadata">
+							<span class="date">5 days ago</span>
+						  </div>
+						  <div class="text">
+							Dude, this is awesome. Thanks so much
+						  </div>
+						  <div class="actions">
+							<a class="reply">Reply</a>
+						  </div>
+						</div>
+					  </div>
+					  <form class="ui reply form">
+						<div class="field">
+						  <textarea></textarea>
+						</div>
+						<div class="ui blue labeled submit icon button">
+						  <i class="icon edit"></i> Add Reply
+						</div>
+					  </form>
+					</div>
+				</div>
+				</div>
+				<!-- Right -->
+				<div class="five wide column">
+					<!--分类-->
+					<div class="ui segments ">
+						<div class="ui secondary segment">
+							<div class="ui two column grid">
+								<div class="column">
+									<i class="sort icon"></i>分类
+								</div>
+								<div class="right aligned column">
+									<a href="#" target="_blank">more<i
+										class="angle double right icon"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="ui blue segment ">
+							<div class="ui fluid vertical menu">
+								<a href="/types/6" target="_blank" class="item"> <span>动漫方法</span>
+									<div class="ui teal basic left pointing label">2</div>
+								</a><a href="/types/1" target="_blank" class="item"> <span>学习方法</span>
+									<div class="ui teal basic left pointing label">4</div>
+								</a><a href="/types/5" target="_blank" class="item"> <span>哈哈方法</span>
+									<div class="ui teal basic left pointing label">1</div>
+								</a><a href="/types/3" target="_blank" class="item"> <span>娱乐方法</span>
+									<div class="ui teal basic left pointing label">1</div>
+								</a><a href="/types/4" target="_blank" class="item"> <span>钓鱼方法</span>
+									<div class="ui teal basic left pointing label">1</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- 标签 -->
+					<div class="ui segments ">
+						<div class="ui secondary segment">
+							<div class="ui two column grid">
+								<div class="column">
+									<i class="tag icon"></i>标签
+								</div>
+								<div class="right aligned column">
+									<a href="types/-1" target="_blank">more <i
+										class="angle double right icon"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="ui blue segment ">
+							<div class="ui labels">
+								<a class="ui blue label">Java</a> <a class="ui blue label">SpringBoot</a>
+								<a class="ui blue label">Linux</a> <a class="ui blue label">UI</a>
+								<a class="ui blue label">PMP</a>
+							</div>
+						</div>
+					</div>
+					<!-- 热门推荐 -->
+					<div class="ui segments ">
+						<div class="ui secondary segment">
+							<div class="ui two column grid">
+								<div class="column">
+									<i class=" sticky note icon "></i>热门推荐
+								</div>
+								<div class="right aligned column">
+									<a href="types/-1" target="_blank">more <i
+										class="angle double right icon"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="ui blue segment ">
+							<div class="ui divided middle aligned animated selection list">
+								<div class="item">
+									<div class="content">
+										<div class="header">Content Header</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="content">
+										<div class="header">Content Header</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="content">
+										<div class="header">Content Header</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="content">
+										<div class="header">Content Header</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--底部footer-->
+	<footer th:replace="template/_fragments :: footer"> 
+	
+	</footer>
+
+	<!--导入的script-->
+	<th:block th:replace="template/_fragments :: script">
+
+	</th:block>
+</body>
+</html>
