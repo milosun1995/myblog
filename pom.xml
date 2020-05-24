@@ -7,11 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>myblog-common</module>
 		<module>myblog-dao</module>
 		<module>myblog-pojo</module>
+		<module>myblog-common</module>
+		<module>myblog-visitors-interface</module>
+		<module>myblog-visitors-service</module>
+		<module>myblog-visitors-web</module>
 		<module>myblog-admin-web</module>
-		<module>myblog-visitor-web</module>
 	</modules>
 
 	<parent>
@@ -35,6 +37,38 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.milosun</groupId>
+			<artifactId>myblog-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.milosun</groupId>
+			<artifactId>myblog-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.milosun</groupId>
+			<artifactId>myblog-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.milosun</groupId>
+			<artifactId>myblog-visitors-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.milosun</groupId>
+			<artifactId>myblog-visitors-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -45,12 +79,23 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- MySql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<!-- 连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -63,7 +108,7 @@
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.8.1</version>
 		</dependency>
-		
+
 		<!-- jasypt加解密支持 -->
 		<dependency>
 			<groupId>com.github.ulisesbocchio</groupId>

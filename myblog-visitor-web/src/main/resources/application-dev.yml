@@ -1,8 +1,0 @@
-#开发环境
-
-
-logging:  #日志级别
-  level:
-    root: info
-    com.blog: debug
-  file: log/blog-dev.log
