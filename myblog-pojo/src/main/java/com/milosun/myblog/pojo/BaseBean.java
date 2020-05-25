@@ -28,6 +28,20 @@ public class BaseBean implements Serializable {
 	@Column(name = "UPDATE_TIME")
 	protected Date updateTime;
 
+	
+	public BaseBean() {
+		super();
+	}
+	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("BaseBean [id=").append(id).append(", createTime=").append(createTime).append(", updateTime=")
+				.append(updateTime).append("]");
+		return builder.toString();
+	}
+
 	public Long getId() {
 		return id;
 	}

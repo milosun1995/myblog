@@ -9,7 +9,6 @@
 	</parent>
 	<artifactId>myblog-dao</artifactId>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>com.milosun</groupId>

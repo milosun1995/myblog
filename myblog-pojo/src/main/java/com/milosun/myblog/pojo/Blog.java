@@ -1,7 +1,5 @@
 package com.milosun.myblog.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -29,13 +27,16 @@ public class Blog extends BaseBean{
 	public Blog() {
 		super();
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Blog [title=").append(title).append(", description=").append(description)
+				.append(", articleType=").append(articleType).append(", coverImage=").append(coverImage)
+				.append(", countViews=").append(countViews).append(", content=").append(content).append(", categoryId=")
+				.append(categoryId).append(", tagIds=").append(tagIds).append(", userId=").append(userId)
+				.append(", status=").append(status).append(", enableComment=").append(enableComment).append("]");
+		return builder.toString();
 	}
 
 	public String getTitle() {
@@ -100,22 +101,6 @@ public class Blog extends BaseBean{
 
 	public void setTagIds(String tagIds) {
 		this.tagIds = tagIds;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 
 	public int getUserId() {
