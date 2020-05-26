@@ -1,6 +1,11 @@
 package com.milosun.myblog.visitors.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.milosun.myblog.dao.visitors.VisitorsBlogDao;
@@ -18,4 +23,12 @@ public class VisitorsBlogServiceImpl implements VisitorsBlogService {
 		return visitorsBlogDao.findBlogById(id);
 	}
 
+	/**
+	 * 博客列表显示
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Blog> findAll(Pageable pageable) {
+		return this.visitorsBlogDao.findAll(pageable);
+	}
 }

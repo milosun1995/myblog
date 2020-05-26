@@ -1,6 +1,9 @@
 package com.milosun.myblog.pojo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -10,33 +13,33 @@ public class Blog extends BaseBean{
 	private static final long serialVersionUID = 1L;
 	
 	private String title;
+	
     private String description;
-    private String articleType;
-    private String coverImage;
+	
+    private Byte articleType;
+    
+    private Byte coverImage;
+    
     private Long countViews;
-
+    
     private String content;
-    private Long categoryId;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CATEGORY_ID",referencedColumnName="ID")
+    private BlogCategory blogCategory;
+    
     private String tagIds;
 
-    private int userId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "USER_ID",referencedColumnName="ID")
+    private BlogUser blogUser;
+    
     private Byte status;
-
+    
     private Byte enableComment;
 
 	public Blog() {
 		super();
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Blog [title=").append(title).append(", description=").append(description)
-				.append(", articleType=").append(articleType).append(", coverImage=").append(coverImage)
-				.append(", countViews=").append(countViews).append(", content=").append(content).append(", categoryId=")
-				.append(categoryId).append(", tagIds=").append(tagIds).append(", userId=").append(userId)
-				.append(", status=").append(status).append(", enableComment=").append(enableComment).append("]");
-		return builder.toString();
 	}
 
 	public String getTitle() {
@@ -55,19 +58,19 @@ public class Blog extends BaseBean{
 		this.description = description;
 	}
 
-	public String getArticleType() {
+	public Byte getArticleType() {
 		return articleType;
 	}
 
-	public void setArticleType(String articleType) {
+	public void setArticleType(Byte articleType) {
 		this.articleType = articleType;
 	}
 
-	public String getCoverImage() {
+	public Byte getCoverImage() {
 		return coverImage;
 	}
 
-	public void setCoverImage(String coverImage) {
+	public void setCoverImage(Byte coverImage) {
 		this.coverImage = coverImage;
 	}
 
@@ -87,12 +90,12 @@ public class Blog extends BaseBean{
 		this.content = content;
 	}
 
-	public Long getCategoryId() {
-		return categoryId;
+	public BlogCategory getBlogCategory() {
+		return blogCategory;
 	}
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
+	public void setBlogCategory(BlogCategory blogCategory) {
+		this.blogCategory = blogCategory;
 	}
 
 	public String getTagIds() {
@@ -103,12 +106,12 @@ public class Blog extends BaseBean{
 		this.tagIds = tagIds;
 	}
 
-	public int getUserId() {
-		return userId;
+	public BlogUser getBlogUser() {
+		return blogUser;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setBlogUser(BlogUser blogUser) {
+		this.blogUser = blogUser;
 	}
 
 	public Byte getStatus() {
@@ -126,4 +129,5 @@ public class Blog extends BaseBean{
 	public void setEnableComment(Byte enableComment) {
 		this.enableComment = enableComment;
 	}
+	
 }

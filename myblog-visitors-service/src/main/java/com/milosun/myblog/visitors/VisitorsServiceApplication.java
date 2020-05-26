@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 import com.milosun.myblog.common.MyblogCommonConfig;
 
 @SpringBootApplication
-@Import({MyblogCommonConfig.class})
+//@Import({MyblogCommonConfig.class})
 public class VisitorsServiceApplication {
 
 	public static void main(String[] args) {

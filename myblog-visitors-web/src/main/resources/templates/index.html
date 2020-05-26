@@ -30,138 +30,19 @@
 					</div>
 					<!-- content -->
 					<div class="ui relaxed divided items">
-						<div class="item">
+						<div class="item" th:each="blogPage : ${blogPage}">
 							<div class="ui small green card image">
 								<img src="assets/images/wireframe/image.png">
 							</div>
 							<div class="content">
-								<a class="header" href="/blog/1">Content Header</a>
+								<a class="header" href="/blog/1" th:text="${blogPage.title}">Content Header</a>
 								<div class="meta">
-								  <span>
-									<i class="calendar icon"></i>2020/05/20 10:15
-								  </span>
-								  <span>
-									<i class="eye icon"></i>256
-								  </span>
+									<i class="calendar icon"></i><span th:text="${blogPage.createTime}">2020/05/20 10:15</span>
+									<i class="eye icon"></i><span th:text="${blogPage.countViews}">256</span>
 								</div>
-								<div class="description">A description which may flow for
-									several lines and give context to the content.</div>
-								<div class="extra">
-									<img src="assets/images/wireframe/square-image.png"
-										class="ui circular avatar image"> <span>Username</span>
-									<a href="#" class="ui teal basic right floated label"> <i
-										class="sort icon"></i> <span>动漫学习</span>
-									</a>
+								<div class="description">
+									<p th:text="${blogPage.description}">A description which may flow for several lines and give context to the content.</p>
 								</div>
-								<div class="extra">
-									<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
-									<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui small green card image">
-								<img src="assets/images/wireframe/image.png">
-							</div>
-							<div class="content">
-								<a class="header">Content Header</a>
-								<div class="meta">
-									<span>
-										<i class="calendar icon"></i>2020/05/20 10:15
-									</span>
-									<span>
-										<i class="eye icon"></i>256
-									</span>
-								</div>
-								<div class="description">A description which may flow for
-									several lines and give context to the content.</div>
-								<div class="extra">
-									<img src="assets/images/wireframe/square-image.png"
-										class="ui circular avatar image"> <span>Username</span>
-									<a href="#" class="ui teal basic right floated label"> <i
-										class="sort icon"></i> <span>动漫学习</span>
-									</a>
-								</div>
-								<div class="extra">
-									<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
-									<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui small green card image">
-								<img src="assets/images/wireframe/image.png">
-							</div>
-							<div class="content">
-								<a class="header">Content Header</a>
-								<div class="meta">
-									<span>
-										<i class="calendar icon"></i>2020/05/20 10:15
-									</span>
-									<span>
-										<i class="eye icon"></i>256
-									</span>
-								</div>
-								<div class="description">A description which may flow for
-									several lines and give context to the content.</div>
-								<div class="extra">
-									<img src="assets/images/wireframe/square-image.png"
-										class="ui circular avatar image"> <span>Username</span>
-									<a href="#" class="ui teal basic right floated label"> <i
-										class="sort icon"></i> <span>动漫学习</span>
-									</a>
-								</div>
-								<div class="extra">
-									<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
-									<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui small green card image">
-								<img src="assets/images/wireframe/image.png">
-							</div>
-							<div class="content">
-								<a class="header">Content Header</a>
-								<div class="meta">
-									<span>
-										<i class="calendar icon"></i>2020/05/20 10:15
-									</span>
-									<span>
-										<i class="eye icon"></i>256
-									</span>
-								</div>
-								<div class="description">A description which may flow for
-									several lines and give context to the content.</div>
-								<div class="extra">
-									<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image"> 
-										<span>Username</span> 
-										<a href="#" class="ui teal basic right floated label"> 
-										<i class="sort icon"></i> <span>动漫学习</span>
-									</a>
-								</div>
-								<div class="extra">
-									<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
-									<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui small green card image">
-								<img src="assets/images/wireframe/image.png">
-							</div>
-							<div class="content">
-								<a class="header">Content Header</a>
-								<div class="meta">
-									<span>
-										<i class="calendar icon"></i>2020/05/20 10:15
-									</span>
-									<span>
-										<i class="eye icon"></i>256
-									</span>
-								</div>
-								<div class="description">A description which may flow for
-									several lines and give context to the content.</div>
 								<div class="extra">
 									<img src="assets/images/wireframe/square-image.png"
 										class="ui circular avatar image"> <span>Username</span>

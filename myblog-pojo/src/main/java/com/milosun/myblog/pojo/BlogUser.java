@@ -10,22 +10,26 @@ public class BlogUser extends BaseBean{
 	
 	private static final long serialVersionUID = 1L;
 	
-    private String nickame;
+    private String nickname;
+    
     private String username;
+    
     private String password;
+    
     private Byte locked;
 	
 	public BlogUser() {
 		super();
 	}
 
-	public String getNickame() {
-		return nickame;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickame(String nickame) {
-		this.nickame = nickame;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
+
 
 	public String getUsername() {
 		return username;
