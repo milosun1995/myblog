@@ -30,18 +30,18 @@
 					</div>
 					<!-- content -->
 					<div class="ui relaxed divided items">
-						<div class="item" th:each="blogPage : ${blogPage}">
+						<div class="item" th:each="blog : ${blogs}">
 							<div class="ui small green card image">
 								<img src="assets/images/wireframe/image.png">
 							</div>
 							<div class="content">
-								<a class="header" href="/blog/1" th:text="${blogPage.title}">Content Header</a>
+								<a class="header" href="/blog/1" th:text="${blog.title}">Content Header</a>
 								<div class="meta">
-									<i class="calendar icon"></i><span th:text="${blogPage.createTime}">2020/05/20 10:15</span>
-									<i class="eye icon"></i><span th:text="${blogPage.countViews}">256</span>
+									<i class="calendar icon"></i><span th:text="${blog.createTime}">2020/05/20 10:15</span>
+									<i class="eye icon"></i><span th:text="${blog.countViews}">256</span>
 								</div>
 								<div class="description">
-									<p th:text="${blogPage.description}">A description which may flow for several lines and give context to the content.</p>
+									<p th:text="${blog.description}">A description which may flow for several lines and give context to the content.</p>
 								</div>
 								<div class="extra">
 									<img src="assets/images/wireframe/square-image.png"
@@ -58,14 +58,25 @@
 						</div>
 					</div>
 					
+					
+					
+					
+					
+					
 					<!-- footer -->
 					<div class="ui  segment">
 	                    <div class="ui middle aligned two column grid">
 	                        <div class="column">
-	                            <div class="item"><a class="ui mini red basic button" ><< 上一页</a></div>
+	                        	<div th:class="${page.hasPreviousPage}? 'item' : 'item disabled'">
+									<span class="ui mini basic button" th:if='${not page.hasPreviousPage}'>上页</span>
+									<a class="ui mini red basic button" th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'>上页</a>
+								</div>
 	                        </div>
 	                        <div class="right aligned column" >
-	                            <div class="item"><a class="ui mini red basic button" >下一页 >></a></div>
+		                        <div th:class="${page.hasNextPage}? 'item' : 'item disabled'">
+					                <span class="ui mini basic button" th:if='${not page.hasNextPage}'>下页</span>
+					                <a class="ui mini red basic button" th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>下页</a>
+					            </div>
 	                        </div>
 	                    </div>
 					</div>

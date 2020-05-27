@@ -4,16 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.milosun.myblog.common.wrapper.PageWrapper;
 import com.milosun.myblog.pojo.Blog;
 import com.milosun.myblog.visitors.service.VisitorsBlogService;
 
@@ -32,12 +31,19 @@ public class IndexController {
 	private VisitorsBlogService visitorsBlogService;
 	
 	@GetMapping("/")
-	public String index(@RequestParam(required = false,defaultValue = "0",value = "currentPage")int currentPage , Model model) {
-		logger.info("Into index~~");
+	public String index(Model model,@PageableDefault(value = 5, sort = { "createTime" }, direction = Sort.Direction.DESC) Pageable pageable) {
 		
-		Pageable pageable =PageRequest.of(currentPage, 8,Sort.by(Order.desc("updateTime")));
+		logger.info("Into index~~");
+		logger.info("pageable.getPageSize():{}",pageable.getPageSize());
+		logger.info("pageable.getPageNumber():{}",pageable.getPageNumber());
+	
 		Page<Blog> blogPage = this.visitorsBlogService.findAll(pageable);
-		model.addAttribute("blogPage", blogPage);
+		PageWrapper<Blog> page = new PageWrapper<>(blogPage, "/");
+		model.addAttribute("blogs", blogPage.getContent());
+		model.addAttribute("page", page);
+		logger.info("totalPages:{}",blogPage.getTotalPages());
+		logger.info("getTotalElements:{}",blogPage.getTotalElements());
+		logger.info("isFirstPage:{}",page.isFirstPage());
 		return "index";
 	}
 	
