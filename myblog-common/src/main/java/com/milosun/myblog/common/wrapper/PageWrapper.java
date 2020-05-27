@@ -15,7 +15,6 @@ public class PageWrapper<T> {
     private List<PageItem> items;
     private int currentNumber;
     private String url;
-
     public String getUrl() {
         return url;
     }
@@ -69,7 +68,11 @@ public class PageWrapper<T> {
     public int getSize(){
         return page.getSize();
     }
-
+    
+    public long getTotalElements(){
+        return  page.getTotalElements();
+    }
+    
     public int getTotalPages(){
         return page.getTotalPages();
     }

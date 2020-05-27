@@ -42,8 +42,8 @@ public class VisitorsBlogServiceTest {
 		Blog blog = this.visitorsBlogService.findBlogById(1L);
 		assertNotNull(blog);
 		logger.info("BlogId:{}",blog.getId());
-		logger.info("CategoryName:{}",blog.getBlogCategory().getCategoryName());
-		logger.info("Nickame:{}",blog.getBlogUser().getNickname());
+		logger.info("CategoryName:{}",blog.getCategory().getCategoryName());
+		logger.info("Nickame:{}",blog.getUser().getNickname());
 	}
 	
 	@Test
@@ -53,8 +53,8 @@ public class VisitorsBlogServiceTest {
 		assertNotNull(blogs);
 		blogs.forEach(b -> {
 			logger.info("b.getTitle():{}",b.getTitle());
-			logger.info("b.getBlogCategory().getCategoryName():{}",b.getBlogCategory().getCategoryName());
-			logger.info("b.getBlogUser().getNickname():{}",b.getBlogUser().getNickname());
+			logger.info("b.getBlogCategory().getCategoryName():{}",b.getCategory().getCategoryName());
+			logger.info("b.getBlogUser().getNickname():{}",b.getUser().getNickname());
 		});
 	}
 }

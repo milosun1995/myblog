@@ -7,36 +7,36 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TB_BLOG")
-public class Blog extends BaseBean{
+@Table(name = "TB_BLOG")
+public class Blog extends BaseBean {
 
 	private static final long serialVersionUID = 1L;
-	
-	private String title;
-	
-    private String description;
-	
-    private Byte articleType;
-    
-    private Byte coverImage;
-    
-    private Long countViews;
-    
-    private String content;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CATEGORY_ID",referencedColumnName="ID")
-    private BlogCategory blogCategory;
-    
-    private String tagIds;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "USER_ID",referencedColumnName="ID")
-    private BlogUser blogUser;
-    
-    private Byte status;
-    
-    private Byte enableComment;
+	private String title;
+
+	private String description;
+
+	private Byte articleType;
+
+	private Byte coverImage;
+
+	private Long countViews;
+
+	private String content;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
+	private BlogCategory category;
+
+	private String tagIds;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
+	private BlogUser user;
+
+	private Byte status;
+
+	private Byte enableComment;
 
 	public Blog() {
 		super();
@@ -90,14 +90,6 @@ public class Blog extends BaseBean{
 		this.content = content;
 	}
 
-	public BlogCategory getBlogCategory() {
-		return blogCategory;
-	}
-
-	public void setBlogCategory(BlogCategory blogCategory) {
-		this.blogCategory = blogCategory;
-	}
-
 	public String getTagIds() {
 		return tagIds;
 	}
@@ -106,12 +98,20 @@ public class Blog extends BaseBean{
 		this.tagIds = tagIds;
 	}
 
-	public BlogUser getBlogUser() {
-		return blogUser;
+	public BlogCategory getCategory() {
+		return category;
 	}
 
-	public void setBlogUser(BlogUser blogUser) {
-		this.blogUser = blogUser;
+	public void setCategory(BlogCategory category) {
+		this.category = category;
+	}
+
+	public BlogUser getUser() {
+		return user;
+	}
+
+	public void setUser(BlogUser user) {
+		this.user = user;
 	}
 
 	public Byte getStatus() {
@@ -129,5 +129,5 @@ public class Blog extends BaseBean{
 	public void setEnableComment(Byte enableComment) {
 		this.enableComment = enableComment;
 	}
-	
+
 }
