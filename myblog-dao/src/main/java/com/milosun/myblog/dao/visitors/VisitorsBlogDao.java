@@ -1,12 +1,10 @@
 package com.milosun.myblog.dao.visitors;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
 import org.springframework.stereotype.Repository;
 
-import com.milosun.myblog.pojo.Blog;
+import com.milosun.myblog.dao.base.BaseBlogDao;
+
 @Repository
-public interface VisitorsBlogDao extends PagingAndSortingRepository<Blog, Long>,QueryByExampleExecutor<Blog> {
-	
-	public Blog findBlogById(Long id);
+public interface VisitorsBlogDao extends BaseBlogDao{
+
 }

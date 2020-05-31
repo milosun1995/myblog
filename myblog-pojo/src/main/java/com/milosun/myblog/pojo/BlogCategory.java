@@ -1,6 +1,10 @@
 package com.milosun.myblog.pojo;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +16,10 @@ public class BlogCategory extends BaseBean {
 	private String categoryName;
 	private String categoryRank;
 	private Byte isDeleted;
+	
+	@OneToMany
+	@JoinColumn(name = "CATEGORY_ID")
+    private Set<Blog> blogs;
 
 	public BlogCategory() {
 		super();
@@ -40,4 +48,13 @@ public class BlogCategory extends BaseBean {
 	public void setIsDeleted(Byte isDeleted) {
 		this.isDeleted = isDeleted;
 	}
+
+	public Set<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(Set<Blog> blogs) {
+		this.blogs = blogs;
+	}
+
 }

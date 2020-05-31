@@ -1,5 +1,7 @@
 package com.milosun.myblog.visitors.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,9 +17,12 @@ public class VisitorsBlogServiceImpl implements VisitorsBlogService {
 	@Autowired
 	private VisitorsBlogDao visitorsBlogDao;
 	
+	/**
+	 * 博客内容查看
+	 */
 	@Override
 	public Blog findBlogById(Long id) {
-		return visitorsBlogDao.findBlogById(id);
+		return this.visitorsBlogDao.findBlogById(id);
 	}
 
 	/**
@@ -27,5 +32,10 @@ public class VisitorsBlogServiceImpl implements VisitorsBlogService {
 	 */
 	public Page<Blog> findAll(Pageable pageable) {
 		return this.visitorsBlogDao.findAll(pageable);
+	}
+
+	@Override
+	public List<Blog> findAll() {
+		return this.visitorsBlogDao.findAll();
 	}
 }

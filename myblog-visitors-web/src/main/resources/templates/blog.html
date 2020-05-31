@@ -14,21 +14,24 @@
 				<div class ="eleven wide column">
 					<!-- 标题头 -->
 					<div class="ui top attached  segment">
-						<h2 class="ui center aligned header">Docker 服务启动,重启,关闭命令</h2>
+						<h2 class="ui center aligned header" th:text="${blog.title}">Docker 服务启动,重启,关闭命令</h2>
 						<div class="ui center aligned basic segment">
 							<div class="ui horizontal link list">
 								<div class="item">
 									<img src="assets/images/二维码图片01.png" alt="" class="ui avatar image">
-									<div class="content"><a href="#" class="header">云淡风轻</a></div>
+									<div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">云淡风轻</a></div>
 								</div>
 								<div class="item">
-									<i class="calendar icon"></i> <span>2020-04-20</span>
+									<i class="calendar icon"></i> 
+									<span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2020-04-20</span>
 								</div>
 								<div class="item">
-									<i class="eye icon"></i> <span>297</span>
+									<i class="eye icon"></i> 
+									<span th:text="${blog.countViews}">297</span>
 								</div>
 								<div class="item">
-									<div class="ui orange basic label">原创</div>
+									<div class="ui orange basic label" th:if="${blog.articleType==0}" >原创</div>
+									<div class="ui orange basic label" th:if="${blog.articleType==1}" >转载</div>
 								</div>
 							</div>
 						</div>
@@ -36,7 +39,7 @@
 					
 					<!--中间主要内容部分-->
 					<div class="ui segment">
-						<div id="content" class="ui typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large basic segment">
+						<div id="content" class="ui typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large basic segment" th:utext="${blog.content}">
 							<h2 id="反射框架设计的灵魂">反射：框架设计的灵魂</h2>
 							<h2 id="一反射">一、反射</h2>
 							<h2 id="11-框架"><em><strong>1.1 框架</strong></em></h2>
@@ -91,9 +94,9 @@
 						<div class="ui middle aligned grid">
 							<div class="eleven wide column">
 								<div class="ui bulleted list">
-									<div class="item">作者：云淡风轻</div>
-									<div class="item">发布日期：2020/05/24 15:10</div>
-									<div class="item">版权声明：xxx</div>
+									<div class="item">作者：<span th:text="${blog.user.nickname}">云淡风轻</span></div>
+									<div class="item">发布日期：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm:ss')}">2020/05/24 15:10</span></div>
+									<div class="item">版权声明：<span>自由转载-非商用-非衍生-保持署名</span></div>
 								</div>
 							</div>
 							
@@ -219,16 +222,9 @@
 						</div>
 						<div class="ui blue segment ">
 							<div class="ui fluid vertical menu">
-								<a href="/types/6" target="_blank" class="item"> <span>动漫方法</span>
-									<div class="ui teal basic left pointing label">2</div>
-								</a><a href="/types/1" target="_blank" class="item"> <span>学习方法</span>
-									<div class="ui teal basic left pointing label">4</div>
-								</a><a href="/types/5" target="_blank" class="item"> <span>哈哈方法</span>
-									<div class="ui teal basic left pointing label">1</div>
-								</a><a href="/types/3" target="_blank" class="item"> <span>娱乐方法</span>
-									<div class="ui teal basic left pointing label">1</div>
-								</a><a href="/types/4" target="_blank" class="item"> <span>钓鱼方法</span>
-									<div class="ui teal basic left pointing label">1</div>
+								<a href="/types/6" th:href="@{/types/{id}(id=${category.id})}" target="_blank" class="item" th:each="category : ${pageSideLayoutCategorys}"> 
+									<span th:text="${category.categoryName}">动漫方法</span>
+									<div class="ui teal basic left pointing label" th:text="${#arrays.length(category.blogs)}">2</div>
 								</a>
 							</div>
 						</div>
