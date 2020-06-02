@@ -8,8 +8,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_BLOG_CATEGORY")
-public class BlogCategory extends BaseBean {
+@Table(name = "TB_CATEGORY")
+public class Category extends BaseBean {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class BlogCategory extends BaseBean {
 	@JoinColumn(name = "CATEGORY_ID")
     private Set<Blog> blogs;
 
-	public BlogCategory() {
+	public Category() {
 		super();
 	}
 

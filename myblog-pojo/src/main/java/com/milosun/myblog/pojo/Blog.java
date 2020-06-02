@@ -1,9 +1,14 @@
 package com.milosun.myblog.pojo;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,13 +29,17 @@ public class Blog extends BaseBean {
 
 	private String content;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
-	private BlogCategory category;
+	private Category category;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
+	private Set<Tag> tags;
 
 	private String tagIds;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
 	private BlogUser user;
 
@@ -98,11 +107,11 @@ public class Blog extends BaseBean {
 		this.tagIds = tagIds;
 	}
 
-	public BlogCategory getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(BlogCategory category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
@@ -128,6 +137,14 @@ public class Blog extends BaseBean {
 
 	public void setEnableComment(Byte enableComment) {
 		this.enableComment = enableComment;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
 	}
 
 }

@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.milosun.myblog.common.wrapper.PageWrapper;
 import com.milosun.myblog.pojo.Blog;
-import com.milosun.myblog.visitors.service.VisitorsBlogService;
 
 /**
  * 首页 - 访问控制器
@@ -28,8 +26,6 @@ public class IndexController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
-	@Autowired
-	private VisitorsBlogService visitorsBlogService;
 	
 	@GetMapping("/")
 	public String index(Model model,@PageableDefault(value = 5, sort = { "createTime" }, direction = Sort.Direction.DESC) Pageable pageable,HttpSession session) {
@@ -38,7 +34,7 @@ public class IndexController extends BaseController{
 		logger.info("pageable.getPageSize():{}",pageable.getPageSize());
 		logger.info("pageable.getPageNumber():{}",pageable.getPageNumber());
 
-		Page<Blog> blogPage = this.visitorsBlogService.findAll(pageable);
+		Page<Blog> blogPage = this.blogService.findAll(pageable);
 		PageWrapper<Blog> page = new PageWrapper<>(blogPage, "/");
 		
 		//页面侧边显示列表
@@ -56,12 +52,15 @@ public class IndexController extends BaseController{
 	@GetMapping("/blog/{id}")
 	public String showBlogDetail(@PathVariable Long id,Model model) {
 		logger.info("Into showBlogDetail~~");
-		Blog blog = this.visitorsBlogService.findBlogById(id);
+		Blog blog = this.blogService.findBlogById(id);
 		
 		//页面侧边显示列表
 		this.pageSideLayoutModel(model);
 		
 		model.addAttribute("blog",blog);
+		blog.getTags().forEach(t -> {
+			logger.info("tags.id :{}/ tags.name:{}",t.getId(),t.getTagName());
+		});
 		return "blog";
 	}
 }
