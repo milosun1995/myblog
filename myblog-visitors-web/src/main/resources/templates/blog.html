@@ -223,16 +223,13 @@
 									<i class="tag icon"></i>标签
 								</div>
 								<div class="right aligned column">
-									<a href="types/-1" target="_blank">more <i
-										class="angle double right icon"></i></a>
+									<a target="_blank">more<i class="angle double right icon"></i></a>
 								</div>
 							</div>
 						</div>
 						<div class="ui blue segment ">
 							<div class="ui labels">
-								<a class="ui blue label">Java</a> <a class="ui blue label">SpringBoot</a>
-								<a class="ui blue label">Linux</a> <a class="ui blue label">UI</a>
-								<a class="ui blue label">PMP</a>
+								<a class="ui blue label" th:each="tag : ${pageSideLayoutTags}" th:text="${tag.tagName}">Java</a>
 							</div>
 						</div>
 					</div>
@@ -244,33 +241,16 @@
 									<i class=" sticky note icon "></i>热门推荐
 								</div>
 								<div class="right aligned column">
-									<a href="types/-1" target="_blank">more <i
-										class="angle double right icon"></i></a>
+									<a target="_blank">more<i class="angle double right icon"></i></a>
 								</div>
 							</div>
 						</div>
 						<div class="ui blue segment ">
-							<div class="ui divided middle aligned animated selection list">
-								<div class="item">
-									<div class="content">
-										<div class="header">Content Header</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="content">
-										<div class="header">Content Header</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="content">
-										<div class="header">Content Header</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="content">
-										<div class="header">Content Header</div>
-									</div>
-								</div>
+							<div class="ui fluid vertical menu">
+								<a th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${pageSideLayoutBlogs}"> 
+									<span th:text="${blog.title}"></span>
+									<div class="ui red basic left pointing label" th:text="${blog.countViews}">2</div>
+								</a>
 							</div>
 						</div>
 					</div>

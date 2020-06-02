@@ -3,6 +3,9 @@ package com.milosun.myblog.visitors.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.ui.Model;
 
 import com.milosun.myblog.visitors.service.VisitorsBlogService;
@@ -27,7 +30,7 @@ public abstract class BaseController {
 		logger.info("into BaseController pageSideLayoutModel...");
 		
 		model.addAttribute("pageSideLayoutTags", this.tagService.findAll());
-		model.addAttribute("pageSideLayoutBlogs", this.blogService.findAll());
+		model.addAttribute("pageSideLayoutBlogs", this.blogService.findAll(PageRequest.of(0, 10, Sort.by(Order.desc("countViews")))));
 		model.addAttribute("pageSideLayoutCategorys", this.categoryService.findAll());
 	}
 }

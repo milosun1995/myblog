@@ -28,23 +28,17 @@ public class IndexController extends BaseController{
 	
 	
 	@GetMapping("/")
-	public String index(Model model,@PageableDefault(value = 5, sort = { "createTime" }, direction = Sort.Direction.DESC) Pageable pageable,HttpSession session) {
-		
+	public String index(Model model,@PageableDefault(value = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,HttpSession session) {
 		logger.info("Into index~~");
-		logger.info("pageable.getPageSize():{}",pageable.getPageSize());
-		logger.info("pageable.getPageNumber():{}",pageable.getPageNumber());
-
+		
 		Page<Blog> blogPage = this.blogService.findAll(pageable);
 		PageWrapper<Blog> page = new PageWrapper<>(blogPage, "/");
 		
 		//页面侧边显示列表
 		this.pageSideLayoutModel(model);
 		
-		model.addAttribute("blogs", blogPage.getContent());
+		model.addAttribute("blogs", blogPage);
 		model.addAttribute("page", page);
-		logger.info("totalPages:{}",blogPage.getTotalPages());
-		logger.info("getTotalElements:{}",blogPage.getTotalElements());
-		logger.info("isFirstPage:{}",page.isFirstPage());
 		return "index";
 	}
 	
@@ -58,9 +52,6 @@ public class IndexController extends BaseController{
 		this.pageSideLayoutModel(model);
 		
 		model.addAttribute("blog",blog);
-		blog.getTags().forEach(t -> {
-			logger.info("tags.id :{}/ tags.name:{}",t.getId(),t.getTagName());
-		});
 		return "blog";
 	}
 }
