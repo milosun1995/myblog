@@ -54,13 +54,12 @@
 									</a>
 								</div>
 								<div class="extra">
-									<a class="ui  basic  floated label"><i class="tag icon"></i>Java</a>
-									<a class="ui  basic  floated label"><i class="tag icon"></i>SpringBoot</a>
+									<div class="ui label">Java</div>
+									<div class="ui label">SpringBoot</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
 					
 					<!-- footer -->
 					<div class="ui  segment">
@@ -128,7 +127,7 @@
 						</div>
 						<div class="ui blue segment ">
 							<div class="ui labels">
-								<a class="ui blue label" th:each="tag : ${pageSideLayoutTags}" th:text="${tag.tagName}">Java</a> 
+								<a class="ui label" th:each="tag : ${pageSideLayoutTags}" th:text="${tag.tagName}">Java</a> 
 							</div>
 						</div>
 					</div>
@@ -140,7 +139,7 @@
 									<i class=" sticky note icon "></i>热门推荐
 								</div>
 								<div class="right aligned column">
-									<a target="_blank">more <i class="angle double right icon"></i></a>
+									<a target="_blank">Hot <i class="trophy icon"></i></a>
 								</div>
 							</div>
 						</div>

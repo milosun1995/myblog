@@ -30,7 +30,11 @@
 					<i class=" home icon"></i>
 					<span>首页</span>
 				</a> 
-				<a href="#" th:href="@{/archives/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}?'active'">
+				<a href="#" th:href="@{/categories/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}?'active'" >
+					<i class=" sort icon"></i>
+					<span>分类</span>
+				</a>
+				<a href="#" th:href="@{/archives/-1}" class="m-item item m-mobile-hide" th:classappend="${n==4}?'active'">
 					<i class=" clone icon"></i>
 					<span>归档</span>
 				</a> 

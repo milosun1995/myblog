@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/_fragments :: head(~{::title})">
+    <title>博客详情</title>
+</head>
+<body>
+	<!--头部导航-->
+	<nav  th:replace="template/_fragments :: menu(2)" ></nav>
+
+	<!--中间内容-->
+	<div class="m-container-small m-padded-tb-big animated fadeInLeftBig">
+	<div class ="ui container">
+		<div class ="ui segments">
+			<!-- 内容标头样式 -->
+			<div class ="ui top attached segment" >
+				<div class = "ui top attached" >
+					<div class="ui middle aligned two column grid">
+						<div class="column">
+							<h2 class="ui blue header">分类</h2>
+						</div>
+						<div class="right aligned column">
+							<div class="ui teal label">
+							  Total
+							  <div class="detail">214</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 内容样式 --> 
+			<div class=" ui relaxed list">
+				<div class="item">
+						<div class="content">
+							<a class="ui ribbon label">
+								<h3 class="header">2020</h3>
+							</a>
+							<div class="ui blue segment ">
+								<div class="ui middle divided aligned animated selection list">
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Nov
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Jun
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  May
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="item">
+						<div class="content">
+							<a class="ui ribbon label">
+								<h3 class="header">2019</h3>
+							</a>
+							<div class="ui blue segment">
+								<div class="ui middle divided aligned animated selection list">
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Nov
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Mar
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Feb
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="item">
+						<div class="content">
+							<a class="ui ribbon label">
+								<h3 class="header">2018</h3>
+							</a>
+							<div class="ui blue segment">
+								<div class="ui middle divided aligned animated selection list">
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Nov
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Mar
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="content">
+											<div class="ui middle aligned two column grid">
+												<div class="column">
+													<h4 class="ui header">Content Header</h4>
+												</div>
+												<div class="right aligned column">
+													<div class="ui teal circular label">
+													  Feb
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	    </div>
+    </div>
+
+	<!--底部footer-->
+	<footer th:replace="template/_fragments :: footer"> 
+	
+	</footer>
+
+	<!--导入的script-->
+	<th:block th:replace="template/_fragments :: script">
+
+	</th:block>
+</body>
+</html>
