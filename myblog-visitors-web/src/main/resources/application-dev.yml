@@ -5,14 +5,19 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: hitrust
     password: IVFBWjJ3c3g=
+    hikari:
+      max-lifetime: 30000 # 不能小于30秒，否则默认回到1800秒
+      minimum-idle: 3
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
   jpa:
     show-sql: false
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate: 
-       ddl-auto: update
+      ddl-auto: update
     properties:
-       hibernate:
-          format_sql: false
+      hibernate:
+        format_sql: false
 
 logging:  #日志级别
   level:

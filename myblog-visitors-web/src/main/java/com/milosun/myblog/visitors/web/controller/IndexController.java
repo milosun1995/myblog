@@ -1,7 +1,5 @@
 package com.milosun.myblog.visitors.web.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -13,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.milosun.myblog.common.constant.WebConstant;
 import com.milosun.myblog.common.wrapper.PageWrapper;
 import com.milosun.myblog.pojo.Blog;
 
@@ -28,7 +27,7 @@ public class IndexController extends BaseController{
 	
 	
 	@GetMapping("/")
-	public String index(Model model,@PageableDefault(value = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,HttpSession session) {
+	public String index(Model model,@PageableDefault(value = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable) {
 		logger.info("Into index~~");
 		
 		Page<Blog> blogPage = this.blogService.findAll(pageable);
@@ -36,10 +35,16 @@ public class IndexController extends BaseController{
 		
 		//页面侧边显示列表
 		this.pageSideLayoutModel(model);
+		//检查数据非空判断
+		if(page.getContent().isEmpty()) {
+			model.addAttribute(WebConstant.PAGE_KEY, page);
+			model.addAttribute(WebConstant.ERRORS_KEY, WebConstant.ERRORS_NOT_FOUND_DATA_VALUE);
+			return WebConstant.INDEX_HTML;
+		}
 		
-		model.addAttribute("blogs", blogPage);
-		model.addAttribute("page", page);
-		return "index";
+		model.addAttribute(WebConstant.BLOGS_KEY, blogPage);
+		model.addAttribute(WebConstant.PAGE_KEY, page);
+		return WebConstant.INDEX_HTML;
 	}
 	
 	
@@ -52,7 +57,7 @@ public class IndexController extends BaseController{
 		this.pageSideLayoutModel(model);
 		
 		model.addAttribute("blog",blog);
-		return "blog";
+		return WebConstant.BLOG_HTML;
 	}
 }
 
