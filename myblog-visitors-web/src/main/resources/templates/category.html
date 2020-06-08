@@ -83,7 +83,7 @@
 								<span th:text="${blog.user.nickname}">
 									Username
 								</span> 
-								<a href="#" class="ui teal basic right floated label"> 
+								<a href="#" class="ui teal basic right floated label" th:href="@{/categories/{id}(id=${blog.category.id})}"> 
 									<i class="sort icon"></i> 
 									<span th:text="${blog.category.categoryName}">
 										动漫学习

@@ -30,6 +30,7 @@ public class IndexController extends BaseController{
 	public String index(Model model,@PageableDefault(value = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable) {
 		logger.info("Into index~~");
 		
+		logger.info("pageable.getPageNumber() :{} ",pageable.getPageNumber());
 		Page<Blog> blogPage = this.blogService.findAll(pageable);
 		PageWrapper<Blog> page = new PageWrapper<>(blogPage, "/");
 		

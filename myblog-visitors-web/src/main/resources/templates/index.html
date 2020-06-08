@@ -17,7 +17,7 @@
 						<div class="ui top attached">
 							<div class="ui middle aligned two column grid">
 								<div class="column">
-									<h2 class="ui blue header">博客</h2>
+									<h2 class="ui header">博客</h2>
 								</div>
 								<div class="right aligned column">
 									<div class="ui teal label">
@@ -57,7 +57,7 @@
 									<div class="extra">
 										<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image">
 										<span th:text="${blog.user.nickname}">Username</span>
-										<a href="#" class="ui teal basic right floated label"> 
+										<a href="#" class="ui teal basic right floated label" th:href="@{/categories/{id}(id=${blog.category.id})}"> 
 											<i class="sort icon"></i>
 											<span th:text="${blog.category.categoryName}">动漫学习</span>
 										</a>
@@ -69,29 +69,29 @@
 								</div>
 							</div>
 						</div>
+					</div>
 					<!-- footer -->
-						<div th:if="${errors} eq null">
-							<div class="ui  segment">
-			                    <div class="ui middle aligned two column grid">
-			                        <div class="column">
-			                        	<div class="item">
-											<span th:class="${page.hasPreviousPage}? '' : 'disabled'" th:if='${not page.hasPreviousPage}'><i class="left arrow icon"></i>上页</span>
-											<a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'><i class="left arrow icon"></i>上页</a>
-										</div>
-			                        </div>
-			                        <div class="right aligned column" >
-				                        <div class="item">
-							                <span th:class="${page.hasNextPage}? '' : 'disabled'" th:if='${not page.hasNextPage}'>下页<i class="right arrow icon"></i></span>
-							                <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>下页&nbsp;&nbsp;<i class="right arrow icon"></i></a>
-							            </div>
-			                        </div>
-			                    </div>
-							</div>
-							<div class="ui vertically padded page grid">
-								<div class=" column">
-								  <p class="ui  center aligned sub header">当前第<span th:text="${page.number}">1</span>页，总<span th:text="${page.totalPages}">1</span>页，共<span th:text="${page.totalElements}">1</span>条记录</p>
-								  <div class="ui divider"></div>
-								</div>
+					<div th:if="${errors} eq null">
+						<div class="ui  segment">
+		                    <div class="ui middle aligned two column grid">
+		                        <div class="column">
+		                        	<div class="item">
+										<span th:class="${page.hasPreviousPage}? '' : 'disabled'" th:if='${not page.hasPreviousPage}'><i class="left arrow icon"></i>上页</span>
+										<a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'><i class="left arrow icon"></i>上页</a>
+									</div>
+		                        </div>
+		                        <div class="right aligned column" >
+			                        <div class="item">
+						                <span th:class="${page.hasNextPage}? '' : 'disabled'" th:if='${not page.hasNextPage}'>下页<i class="right arrow icon"></i></span>
+						                <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>下页&nbsp;&nbsp;<i class="right arrow icon"></i></a>
+						            </div>
+		                        </div>
+		                    </div>
+						</div>
+						<div class="ui vertically padded page grid">
+							<div class=" column">
+							  <p class="ui  center aligned sub header">当前第<span th:text="${page.number}">1</span>页，总<span th:text="${page.totalPages}">1</span>页，共<span th:text="${page.totalElements}">1</span>条记录</p>
+							  <div class="ui divider"></div>
 							</div>
 						</div>
 					</div>
@@ -107,14 +107,16 @@
 									<span>分类</span>
 								</div>
 								<div class="right aligned column">
-									<a href="#" target="_blank">more<i
-										class="angle double right icon"></i></a>
+									<a href="/categories/-1" target="_blank">
+										more
+										<i class="angle double right icon"></i>
+									</a>
 								</div>
 							</div>
 						</div>
 						<div class="ui blue segment ">
 							<div class="ui fluid vertical menu">
-								<a href="/types/6" th:href="@{/types/{id}(id=${category.id})}" target="_blank" class="item" th:each="category : ${pageSideLayoutCategorys}"> 
+								<a href="/categories/2" th:href="@{/categories/{id}(id=${category.id})}" target="_blank" class="item" th:each="category : ${pageSideLayoutCategorys}"> 
 									<span th:text="${category.categoryName}">动漫方法</span>
 									<div class="ui teal basic left pointing label" th:text="${#arrays.length(category.blogs)}">2</div>
 								</a>
