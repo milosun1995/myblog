@@ -55,7 +55,7 @@
 										<p th:text="${blog.description}">A description which may flow for several lines and give context to the content.</p>
 									</div>
 									<div class="extra">
-										<img src="assets/images/wireframe/square-image.png" class="ui circular avatar image">
+										<img src="/plugins/semantic-ui-1.12.2/logo.png" class="ui circular avatar image">
 										<span th:text="${blog.user.nickname}">Username</span>
 										<a href="#" class="ui teal basic right floated label" th:href="@{/categories/{id}(id=${blog.category.id})}"> 
 											<i class="sort icon"></i>

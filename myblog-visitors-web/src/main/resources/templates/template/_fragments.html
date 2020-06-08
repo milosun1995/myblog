@@ -7,12 +7,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Site Properties -->
 	<title th:replace="${title}">首页</title>
-	<link href="https://unpkg.com/animate.css@3.5.2/animate.min.css" rel="stylesheet">
+	
 	<!-- Semantic-UI CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-
+	
+	<link href="" th:href="@{/plugins/typo/typo.css}" rel="stylesheet">
+	
+	<link href="https://unpkg.com/animate.css@3.5.2/animate.min.css" rel="stylesheet">
+	
+	<link href="" th:href="@{/plugins/prism/prism.css}" rel="stylesheet">
+		
+	<link href="https://cdn.bootcdn.net/ajax/libs/tocbot/4.11.1/tocbot.css" rel="stylesheet">
+	
 	<!-- MyBlog Visitor CSS -->
-	<link rel="stylesheet" href="../static/css/visitor.css" th:href="@{/css/visitors.css}">
+	<link rel="stylesheet" href="" th:href="@{/css/visitors.css}">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+	
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 	
@@ -61,7 +72,7 @@
 				<div class="three wide column">
 					<div class="ui inverted link list">
 						<div class="item">
-							<image src="assets/images/二维码图片01.png" class="ui small rounded image " />
+							<image src="/plugins/semantic-ui-1.12.2/logo.png" class="ui small rounded image " />
 						</div>
 					</div>
 				</div>
@@ -89,7 +100,7 @@
 				</div>
 			</div>
 			<div class="ui inverted section divider"></div>
-			<img src="assets/images/logo.png" class="ui centered mini image">
+			<img src="/plugins/semantic-ui-1.12.2/logo.png" class="ui centered mini image">
 			<div class="ui horizontal inverted small divided link list">
 				<a class="item" href="#">Site Map</a>
 				<a class="item" href="#">Contact Us</a> 
@@ -103,6 +114,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+		<script src="" th:src="@{/plugins/prism/prism.js}"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 		<!-- 自适应菜单 -->
 		<script>
 			$('.menu.toggle').click(function() {
