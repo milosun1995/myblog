@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/_fragments :: head(~{::title})">
+    <title>首页</title>
+</head>
+<body id="example" class="pushable index" ontouchstart="">
+	<!-- 左菜单导航-->
+	<aside th:replace="template/_fragments :: menu(1)" ></aside>
+	<nav th:replace="template/_fragments :: nav(n='首页')" ></nav>
+	<!--中间内容-->
+	<div class="pusher">
+		<div class="full height bg2">
+			<div class="masthead segment bg2">
+				<div class="ui container">
+					<div class="introduction">
+						<span class="ui black big label">
+							<h1 class="ui center inverted header">JLBlog web system</h1>
+						</span>
+						<h1 class="ui center inverted header">
+							<span class="library"> Welcome to the JLBlog web system </span>
+						</h1>
+						<div class="ui hidden divider"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部footer-->
+		<footer th:replace="template/_fragments :: footer"> 
+		</footer>
+	</div>
+
+	<!--导入的script-->
+	<th:block th:replace="template/_fragments :: script">
+	
+	</th:block>
+</body>
+</html>

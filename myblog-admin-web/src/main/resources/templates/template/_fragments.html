@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--title为传参-->
+<head th:fragment="head(title)"> 	
+	<!-- Standard Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Site Properties -->
+	<title th:replace="${title}">首页</title>
+	
+	<!-- Semantic-UI CSS -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+	
+	<!-- MyBlog admin CSS -->
+	<link rel="stylesheet" href="" th:href="@{/css/docs.css}">
+	
+	<!-- editor.md -->
+	<link rel="stylesheet" href="" th:href="@{/plugins/editor.md/css/editormd.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/myeditormd.css}">
+
+	
+	
+</head>
+<body>
+	<!--头部导航-->
+	<th:block th:fragment="menu(n)">
+	  <div class="ui vertical inverted sidebar menu left" id="toc" style="" > 
+		   <div class="item"> 
+		    <a class="ui logo icon image" href="#"> <img src="/images/logo.png" /> </a> 
+		    <a href="#"><b>UserName</b></a> 
+		   </div> 
+		   <span class="item" href="#"> 
+			<div class="ui  icon input">
+				<input type="text" placeholder="Search ...">
+				<i class="search icon"></i>
+			</div>
+			</span> 
+		   <a class="item" href="/" th:classappend="${n==1}?'active'"> <i class="download icon"></i> <b>Home</b> </a> 
+		   <a class="item" href="/blog/edit/-1" th:classappend="${n==2}?'active'"> <i class="cubes icon"></i> <b>发布博客</b> </a> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     博客管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Reset </a> 
+		     <a class="item" href="#"> Site </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     分类管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     标签管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     评论管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     留言管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     工具管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		   <div class="item"> 
+		    <div class="ui small  inverted header">
+		     系统管理
+		    </div> 
+		    <div class="menu"> 
+		     <a class="item" href="#"> Breadcrumb </a> 
+		     <a class="item" href="#"> Form </a> 
+		    </div> 
+		   </div> 
+		  </div> 
+		  <div class="ui black big launch right attached fixed button"> 
+		   <i class="content icon"></i> 
+		   <span class="text">Menu</span> 
+		  </div> 
+	</th:block>
+	  <nav class="ui fixed inverted borderless main menu" th:fragment="nav{n}"> 
+	   <div class="container"> 
+	    <a class="launch item"> <i class="content icon"></i> Menu </a> 
+	    <div class="title item"> 
+	     <b th:text="${n}"></b>
+	    </div> 
+	    <div class="right menu"> 
+		  <div class="ui pointing dropdown link item">
+			<span class="text">快捷操作</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+			  <a class="item" href="/blog/edit/-1"><i class="alternate music icon"></i>发表博客</a>
+			  <a class="item" href="#"><i class="alternate music icon"></i>查看留言</a>
+			  <a class="item" href="#"><i class="alternate music icon"></i>查看评论</a>
+			  <a class="item" href="#"><i class="alternate music icon"></i>修改密码</a>
+			  <a class="item" href="https://www.baidu.com" target="_blank"><i class="alternate music icon"></i>Logout</a>
+			</div>
+		  </div>	
+		  <a class="popup icon music item" > <i class="alternate music icon"></i> </a> 
+	      <a class="popup icon github item"> <i class="alternate github icon"></i> </a> 
+	    </div> 
+	   </div> 
+	  </nav>
+	
+
+	<!-- Footer -->
+	<footer th:fragment="footer" class="ui inverted vertical footer segment">
+		<div class="ui center aligned container">
+			<div class="ui stackable inverted divided grid">
+				<div class="three wide column">
+					<div class="ui inverted link list">
+						<div class="item">
+							<image src="/plugins/semantic-ui-1.12.2/logo.png" class="ui small rounded image " />
+						</div>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">Group 2</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Link One</a> 
+						<a href="#" class="item">Link Two</a> 
+						<a href="#" class="item">Link Three</a> 
+						<a href="#" class="item">Link Four</a>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">Group 3</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Link One</a> 
+						<a href="#" class="item">Link Two</a> 
+						<a href="#" class="item">Link Three</a> 
+						<a href="#" class="item">Link Four</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Footer Header</h4>
+					<p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<img src="/plugins/semantic-ui-1.12.2/logo.png" class="ui centered mini image">
+			<div class="ui horizontal inverted small divided link list">
+				<a class="item" href="#">Site Map</a>
+				<a class="item" href="#">Contact Us</a> 
+				<a class="item" href="#">Terms and Conditions</a> 
+				<a class="item" href="#">Privacy Policy</a>
+			</div>
+		</div>
+	</footer>
+
+	<th:block th:fragment="script">
+	<th:if></th:if>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/plugins/editor.md/editormd.min.js" th:href="@{/plugins/editor.md/editormd.min.js}"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+		<script src="/js/docs.js" th:href="@{/js/docs.js}"></script> 
+		<script>
+		    $(document).ready(function() {
+		    	//是否激活编辑器功能
+		    	if($("#test-editormd").val()!=null){
+		    		var testEditor = editormd("test-editormd", {
+						width   : "100%",
+						height  : 640,
+						syncScrolling : "single",
+						path    : "/plugins/editor.md/lib/",
+					
+						onfullscreen : function() {
+							// alert("onfullscreen");
+							$("#test-editormd").addClass("editoronfullscreen")
+							//$("#test-editormd").addClass("segment")
+							 console.log("onfullscreen =>", this, this.id, this.settings);
+						},
+
+						onfullscreenExit : function() {
+							$("#test-editormd").removeClass("editoronfullscreen")
+							// alert("onfullscreenExit");
+							 console.log("onfullscreenExit =>", this, this.id, this.settings);
+						}
+					});
+		    	}
+				
+
+				$('.dropdown').dropdown({
+					// you can use any ui transition
+					transition: 'drop'
+				});
+			});
+		 </script>
+	</th:block>
+</body>
+</html>

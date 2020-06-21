@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/_fragments :: head(~{::title})">
+    <title>发表博客</title>
+</head>
+<body id="example" class="pushable index" ontouchstart="">
+	<!-- 左菜单导航-->
+	<aside th:replace="template/_fragments :: menu(2)" ></aside>
+	<nav th:replace="template/_fragments :: nav(n='发表博客')" ></nav>
+	<!--中间内容-->
+  <div class="pusher"> 
+   <div class="full height"> 
+		<div class=" header segment"> 
+			<div class="ui container"> 
+				<h2 class="ui header">
+				  <i class="edit icon"></i>
+				  <div class="content">
+					发布博客
+					<div class="sub header">笔耕不辍，记录生活点点滴滴</div>
+				  </div>
+				</h2>
+				<div class="ui divider"></div> 
+			</div>	
+		</div>
+	 </div> 
+	<div class="ui container segment">
+		<form class="ui form">
+		<div class="ui black segment"> 
+		  <div class="two fields">
+			<div class="field">
+			  <label>文章标题</label>
+				<div class="field">
+				  <input type="text" name="first-name" placeholder="文章标题">
+				</div>
+			</div>
+			<div class="field">
+			  <label>分类</label>
+			  <div class="ui selection dropdown">
+				<input type="hidden" name="gender">
+				<div class="default text">Gender</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+				  <div class="item" data-value="male">Male</div>
+				  <div class="item" data-value="female">Female</div>
+				  <div class="item" data-value="male">Male</div>
+				  <div class="item" data-value="female">Female</div>
+				</div>
+			  </div>
+			</div>
+			<div class="field">
+				<label>文章标签</label>
+				<div class="ui fluid multiple search selection dropdown">
+				  <input type="hidden" name="receipt">
+				  <i class="dropdown icon"></i>
+				  <div class="default text">Saved Contacts</div>
+				  <div class="menu">
+					<div class="item" data-value="jenny" data-text="Jenny">
+					  <img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
+					  Jenny Hess
+					</div>
+					<div class="item" data-value="elliot" data-text="Elliot">
+					  <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
+					  Elliot Fu
+					</div>
+					<div class="item" data-value="stevie" data-text="Stevie">
+					  <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
+					  Stevie Feliciano
+					</div>
+					<div class="item" data-value="christian" data-text="Christian">
+					  <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
+					  Christian
+					</div>
+					<div class="item" data-value="matt" data-text="Matt">
+					  <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
+					  Matt
+					</div>
+					<div class="item" data-value="justen" data-text="Justen">
+					  <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
+					  Justen Kitsune
+					</div>
+				  </div>
+				</div>
+		  </div>
+		  </div>
+		  </div>
+		  <div class="ui basic segment"> 
+		  <div class="field" id="test-editormd">
+			<textarea style="display:none;"></textarea>
+		  </div>
+		  </div>
+		  <div class="ui basic column grid segment">
+			<div class="right aligned  column">
+				<div class="ui  submit button ">返回文章列表</div>
+				<div class="ui  submit button ">保存文章</div>
+			</div>
+		  </div>
+		</form>
+	</div>
+	</div>
+	
+	<!--底部footer-->
+	<footer th:replace="template/_fragments :: footer"> 
+	
+	</footer>
+
+	<!--导入的script-->
+	<th:block th:replace="template/_fragments :: script">
+	
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,26 @@
+#开发环境
+spring:
+  datasource: # 数据库连接配置
+    url: jdbc:mysql://118.25.123.98:3306/MyBlogDB?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: hitrust
+    password: IVFBWjJ3c3g=
+    hikari:
+      max-lifetime: 30000 # 不能小于30秒，否则默认回到1800秒
+      minimum-idle: 3
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate: 
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+
+logging:  #日志级别
+  level:
+    root: info
+    com.blog: debug
+  file: log/blog-dev.log

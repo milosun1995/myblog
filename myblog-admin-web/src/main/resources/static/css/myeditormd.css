@@ -1,0 +1,10 @@
+
+
+.editoronfullscreen{
+	z-index:12;
+	top:40px;
+}
+
+.editoronload{
+	z-index:1;
+}
