@@ -18,9 +18,9 @@ public class Tag extends BaseBean {
 	private String tagName;
 	private Byte isDeleted;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"))
-	private Set<Blog> blogs;
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"))
+//	private Set<Blog> blogs;
 
 	public Tag() {
 		super();
@@ -42,12 +42,12 @@ public class Tag extends BaseBean {
 		this.isDeleted = isDeleted;
 	}
 
-	public Set<Blog> getBlogs() {
-		return blogs;
-	}
-
-	public void setBlogs(Set<Blog> blogs) {
-		this.blogs = blogs;
-	}
+//	public Set<Blog> getBlogs() {
+//		return blogs;
+//	}
+//
+//	public void setBlogs(Set<Blog> blogs) {
+//		this.blogs = blogs;
+//	}
 
 }

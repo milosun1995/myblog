@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +20,7 @@ public class Category extends BaseBean {
 	
 	@OneToMany
 	@JoinColumn(name = "CATEGORY_ID")
+	@OrderBy("updateTime desc")
     private Set<Blog> blogs;
 
 	public Category() {
