@@ -18,6 +18,7 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.milosun.myblog.pojo.Blog;
+import com.milosun.myblog.visitors.interfaces.VisitorsBlogService;
 
 
 @RunWith(SpringRunner.class)

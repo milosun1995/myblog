@@ -1,4 +1,4 @@
-package com.milosun.myblog.visitors.service.impl;
+package com.milosun.myblog.admin.service;
 
 import java.util.List;
 
@@ -7,29 +7,29 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.milosun.myblog.dao.visitors.VisitorsCategoryDao;
+import com.milosun.myblog.admin.interfaces.AdminCategoryService;
+import com.milosun.myblog.dao.admin.AdminCategoryDao;
 import com.milosun.myblog.pojo.Category;
-import com.milosun.myblog.visitors.service.VisitorsCategoryService;
 
 @Service
-public class VisitorsCategoryServiceImpl implements VisitorsCategoryService {
+public class BaseAdminCategoryService implements AdminCategoryService {
 
 	@Autowired
-	private VisitorsCategoryDao visitorsCategoryDao;
+	private AdminCategoryDao categoryDao;
 
 
 	@Override
 	public Category findCategoryById(Long id) {
-		return this.visitorsCategoryDao.findCategoryById(id);
+		return this.categoryDao.findCategoryById(id);
 	}
 
 	@Override
 	public List<Category> findAll() {
-		return this.visitorsCategoryDao.findAll();
+		return this.categoryDao.findAll();
 	}
 
 	@Override
 	public Page<Category> findAll(Pageable pageable) {
-		return this.visitorsCategoryDao.findAll(pageable);
+		return this.categoryDao.findAll(pageable);
 	}
 }

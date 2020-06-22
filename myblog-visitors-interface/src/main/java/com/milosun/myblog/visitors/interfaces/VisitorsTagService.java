@@ -1,4 +1,4 @@
-package com.milosun.myblog.visitors.service;
+package com.milosun.myblog.visitors.interfaces;
 
 import java.util.List;
 

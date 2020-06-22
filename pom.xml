@@ -14,6 +14,8 @@
 		<module>myblog-visitors-service</module>
 		<module>myblog-visitors-web</module>
 		<module>myblog-admin-web</module>
+		<module>myblog-admin-interface</module>
+		<module>myblog-admin-service</module>
 	</modules>
 
 	<parent>

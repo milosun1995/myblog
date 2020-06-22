@@ -49,9 +49,9 @@
 						<a class="ui blue ribbon label" th:href="@{/categories/{id}(id=${blog.category.id})}">
 							<i class="sort icon"></i>
 							<span th:text="${blog.category.categoryName}">Java</span>
-						</a>
-						<div id="content" class="ui typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large basic segment" th:utext="${blog.content}">
-							
+						</a> 
+						<div id="editormd-detail" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large basic segment" >
+							<textarea style="display:none;" th:utext="${blog.content}"></textarea>						
 						</div>
 						
 						<!-- 标签 -->

@@ -1,4 +1,4 @@
-package com.milosun.myblog.visitors.service;
+package com.milosun.myblog.admin.interfaces;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.milosun.myblog.pojo.Category;
 
-public interface VisitorsCategoryService {
+public interface AdminCategoryService {
 
 	public Category findCategoryById(Long id);
 	

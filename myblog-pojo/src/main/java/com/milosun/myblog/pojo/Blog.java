@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -30,8 +31,9 @@ public class Blog extends BaseBean {
 
 	private String content;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CATEGORY_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_CATEGORY_ID"))
+//	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private Category category;
 
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -40,8 +42,9 @@ public class Blog extends BaseBean {
 
 	private String tagIds;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_USER_ID"))
+//	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
 	private BlogUser user;
 
 	private Byte status;
@@ -51,6 +54,22 @@ public class Blog extends BaseBean {
 	public Blog() {
 		super();
 	}
+
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Blog [title=").append(title).append(", description=").append(description)
+				.append(", articleType=").append(articleType).append(", coverImage=").append(coverImage)
+				.append(", countViews=").append(countViews).append(", content=").append(content).append(", category=")
+				.append(category).append(", tags=").append(tags).append(", tagIds=").append(tagIds).append(", user=")
+				.append(user).append(", status=").append(status).append(", enableComment=").append(enableComment)
+				.append("]");
+		return builder.toString();
+	}
+
+
+
 
 	public String getTitle() {
 		return title;

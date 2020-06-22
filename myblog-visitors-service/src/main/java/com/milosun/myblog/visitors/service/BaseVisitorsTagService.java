@@ -1,4 +1,4 @@
-package com.milosun.myblog.visitors.service.impl;
+package com.milosun.myblog.visitors.service;
 
 import java.util.List;
 
@@ -9,27 +9,27 @@ import org.springframework.stereotype.Service;
 
 import com.milosun.myblog.dao.visitors.VisitorsTagDao;
 import com.milosun.myblog.pojo.Tag;
-import com.milosun.myblog.visitors.service.VisitorsTagService;
+import com.milosun.myblog.visitors.interfaces.VisitorsTagService;
 
 @Service
-public class VisitorsTagServiceImpl implements VisitorsTagService {
+public class BaseVisitorsTagService implements VisitorsTagService {
 
 	@Autowired
-	private VisitorsTagDao visitorsTagDao;
+	private VisitorsTagDao tagDao;
 
 
 	@Override
 	public Tag findTagById(Long id) {
-		return this.visitorsTagDao.findTagById(id);
+		return this.tagDao.findTagById(id);
 	}
 
 	@Override
 	public List<Tag> findAll() {
-		return this.visitorsTagDao.findAll();
+		return this.tagDao.findAll();
 	}
 
 	@Override
 	public Page<Tag> findAll(Pageable pageable) {
-		return this.visitorsTagDao.findAll(pageable);
+		return this.tagDao.findAll(pageable);
 	}
 }

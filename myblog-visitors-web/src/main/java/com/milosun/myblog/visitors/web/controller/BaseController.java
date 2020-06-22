@@ -8,9 +8,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.ui.Model;
 
-import com.milosun.myblog.visitors.service.VisitorsBlogService;
-import com.milosun.myblog.visitors.service.VisitorsCategoryService;
-import com.milosun.myblog.visitors.service.VisitorsTagService;
+import com.milosun.myblog.visitors.interfaces.VisitorsBlogService;
+import com.milosun.myblog.visitors.interfaces.VisitorsCategoryService;
+import com.milosun.myblog.visitors.interfaces.VisitorsTagService;
 
 public abstract class BaseController {
 
