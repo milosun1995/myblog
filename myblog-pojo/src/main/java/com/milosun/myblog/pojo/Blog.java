@@ -42,8 +42,6 @@ public class Blog extends BaseBean {
 	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
 	private Set<Tag> tags;
 
-	private String tagIds;
-	
 	private String tagNames;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -57,22 +55,37 @@ public class Blog extends BaseBean {
 	public Blog() {
 		super();
 	}
-
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Blog [title=").append(title).append(", description=").append(description)
-				.append(", articleType=").append(articleType).append(", coverImage=").append(coverImage)
-				.append(", countViews=").append(countViews).append(", content=").append(content).append(", category=")
-				.append(category).append(", tags=").append(tags).append(", tagIds=").append(tagIds).append(", user=")
-				.append(user).append(", status=").append(status).append(", enableComment=").append(enableComment)
-				.append("]");
+		builder.append("Blog [title=");
+		builder.append(title);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", articleType=");
+		builder.append(articleType);
+		builder.append(", coverImage=");
+		builder.append(coverImage);
+		builder.append(", countViews=");
+		builder.append(countViews);
+		builder.append(", content=");
+		builder.append(content);
+		builder.append(", category=");
+		builder.append(category);
+		builder.append(", tags=");
+		builder.append(tags);
+		builder.append(", tagNames=");
+		builder.append(tagNames);
+		builder.append(", user=");
+		builder.append(user);
+		builder.append(", status=");
+		builder.append(status);
+		builder.append(", enableComment=");
+		builder.append(enableComment);
+		builder.append("]");
 		return builder.toString();
 	}
-
-
-
 
 	public String getTitle() {
 		return title;
@@ -122,14 +135,6 @@ public class Blog extends BaseBean {
 		this.content = content;
 	}
 
-	public String getTagIds() {
-		return tagIds;
-	}
-
-	public void setTagIds(String tagIds) {
-		this.tagIds = tagIds;
-	}
-	
 	public String getTagNames() {
 		return tagNames;
 	}
@@ -137,7 +142,6 @@ public class Blog extends BaseBean {
 	public void setTagNames(String tagNames) {
 		this.tagNames = tagNames;
 	}
-
 
 	public Category getCategory() {
 		return category;
@@ -179,7 +183,7 @@ public class Blog extends BaseBean {
 		this.tags = tags;
 	}
 	
-	
+	//逗号分隔处理tagName
 	public List<String> buildTagNames(){
 		if(StringUtils.isEmpty(this.tagNames)) {
 			return Collections.emptyList();
