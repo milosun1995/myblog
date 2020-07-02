@@ -160,7 +160,7 @@ public class PageWrapper<T> {
     }
 
     private static <T> PageImpl<T> getEmptySubList(List<T> list, Pageable pageable) {
-        return new PageImpl<>(new ArrayList(), pageable, list.size());
+        return new PageImpl<>(new ArrayList<>(), pageable, list.size());
     }
     
 }
