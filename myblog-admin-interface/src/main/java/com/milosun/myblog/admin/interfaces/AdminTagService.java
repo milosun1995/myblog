@@ -12,9 +12,11 @@ public interface AdminTagService {
 
 	public Tag findTagById(Long id);
 	
+	public Tag findTagByTagName(String tagName);
+	
 	public Page<Tag> findAll(Pageable pageable);
 	
 	public List<Tag> findAll();
 	
-	public Set<Tag> save(Set<Tag> tags);
+	public Set<Tag> save(List<String> tagNames);
 }

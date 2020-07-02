@@ -1,12 +1,6 @@
 package com.milosun.myblog.pojo;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,10 +12,6 @@ public class Tag extends BaseBean {
 	private String tagName;
 	private Byte isDeleted;
 
-//	@ManyToMany(fetch = FetchType.EAGER)
-//	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"))
-//	private Set<Blog> blogs;
-	
 	public Tag() {
 		super();
 	}
@@ -29,6 +19,14 @@ public class Tag extends BaseBean {
 	public Tag(String tagName) {
 		super();
 		this.tagName = tagName;
+	}
+
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Tag [tagName=").append(tagName).append(", isDeleted=").append(isDeleted).append("]");
+		return builder.toString();
 	}
 
 	public String getTagName() {
@@ -46,13 +44,5 @@ public class Tag extends BaseBean {
 	public void setIsDeleted(Byte isDeleted) {
 		this.isDeleted = isDeleted;
 	}
-
-//	public Set<Blog> getBlogs() {
-//		return blogs;
-//	}
-//
-//	public void setBlogs(Set<Blog> blogs) {
-//		this.blogs = blogs;
-//	}
 
 }

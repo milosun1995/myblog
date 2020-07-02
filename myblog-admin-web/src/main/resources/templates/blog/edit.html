@@ -25,25 +25,26 @@
 	 </div> 
 	<div class="ui container segment">
 		<form class="ui form" action="#" id="blog-form" th:action="@{/blog/save}" th:object="${blog}" method="post">
-		<div class="ui black segment"> 
+		<div class="ui black segment" id ="fields"> 
 		  <div class="two fields">
 			<div class="field">
 			  <label>文章标题</label>
 				<div class="field">
 				  <input type="text" name="first-name" placeholder="文章标题" th:field="*{title}">
-					<input name="" type="text"   th:field="*{user.id}"/>
+				  <input type="hidden"  th:field="*{id}"/>
+				  <input type="hidden"  th:field="*{user.id}"/>
 				</div>
 			</div>
 			<div class="field">
 			  <label>分类</label>
 			  <div class="ui selection dropdown">
 				<input type="hidden" th:field="*{category.id}">
-				<div class="default text">分类</div>
+				<div class="default text" >分类</div>
 				<i class="dropdown icon"></i>
 				<div class="menu" >
 				  <th:block th:unless="${null == categories}">
 				  	<th:block th:each="category : ${categories}">
-					  <div class="item" data-value="male" th:attr="data-value=${category.id}" th:text="${category.categoryName}">Male</div>
+					  <div class="item" data-value="male" th:classappend="(*{user.id} eq ${category.id})?'active selected'"  th:attr="data-value=${category.id}" th:text="${category.categoryName}">Male</div>
 				  	</th:block>
 				  </th:block>
 				</div>
@@ -52,33 +53,23 @@
 			<div class="field">
 				<label>文章标签</label>
 				<div class="ui fluid multiple search selection dropdown">
-				  <input type="hidden" name="receipt">
+				  <input type="hidden" th:field="*{tagNames}">
 				  <i class="dropdown icon"></i>
+				  <th:block th:each="blogTag: *{tags}">
+				  <a class="ui label transition visible" th:attr="data-value=${blogTag.tagName}" style="display: inline-block !important;">
+				  <th:block th:text="${blogTag.tagName}"></th:block>
+				  <i class="delete icon"></i></a>
+				  </th:block>
 				  <div class="default text">Saved Contacts</div>
-				  <div class="menu">
-					<div class="item" data-value="elliot" data-text="Elliot">
-					  <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
-					  Elliot Fu
-					</div>
-					<div class="item" data-value="stevie" data-text="Stevie">
-					  <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
-					  Stevie Feliciano
-					</div>
-					<div class="item" data-value="christian" data-text="Christian">
-					  <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
-					  Christian
-					</div>
-					<div class="item" data-value="matt" data-text="Matt">
-					  <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
-					  Matt
-					</div>
-					<div class="item" data-value="justen" data-text="Justen">
-					  <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
-					  Justen Kitsune
-					</div>
+				  <div class="menu" id="tags-menu">
+	  				  <th:block th:unless="${null == tags}">
+					  	<th:block th:each="tag : ${tags}">
+						  		<div class="item" th:attr="data-value=${tag.tagName}, data-text=${tag.tagName} " th:text="${tag.tagName}"></div>
+					  	</th:block>
+					  </th:block>
 				  </div>
 				</div>
-		  </div>
+		  	</div>
 		  </div>
 		  </div>
 		  <div class="ui basic segment"> 

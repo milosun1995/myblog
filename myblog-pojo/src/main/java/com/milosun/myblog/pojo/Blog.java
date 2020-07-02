@@ -1,5 +1,8 @@
 package com.milosun.myblog.pojo;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.util.StringUtils;
 
 @Entity
 @Table(name = "TB_BLOG")
@@ -41,6 +46,8 @@ public class Blog extends BaseBean {
 	private Set<Tag> tags;
 
 	private String tagIds;
+	
+	private String tagNames;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_USER_ID"))
@@ -126,6 +133,15 @@ public class Blog extends BaseBean {
 	public void setTagIds(String tagIds) {
 		this.tagIds = tagIds;
 	}
+	
+	public String getTagNames() {
+		return tagNames;
+	}
+
+	public void setTagNames(String tagNames) {
+		this.tagNames = tagNames;
+	}
+
 
 	public Category getCategory() {
 		return category;
@@ -165,6 +181,14 @@ public class Blog extends BaseBean {
 
 	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
+	}
+	
+	
+	public List<String> buildTagNames(){
+		if(StringUtils.isEmpty(this.tagNames)) {
+			return Collections.emptyList();
+		}
+		return Arrays.asList(this.tagNames.split(","));
 	}
 
 }

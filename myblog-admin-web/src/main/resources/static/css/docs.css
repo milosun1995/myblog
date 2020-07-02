@@ -227,12 +227,15 @@ body > .content  {
 
 
 /*--------------
-    fabuboke
+    extra
 ---------------*/
-#example .fields .field .selection.dropdown{
+/* #example .fields .field .selection.dropdown{ */
+/*   z-index:11; */
+/* } */
+
+#fields{
   z-index:11;
 }
-
 
 /*--------------
     Masthead
