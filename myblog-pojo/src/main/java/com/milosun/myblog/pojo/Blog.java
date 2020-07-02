@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -13,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.util.StringUtils;
@@ -38,7 +36,6 @@ public class Blog extends BaseBean {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORY_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_CATEGORY_ID"))
-//	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private Category category;
 
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -51,7 +48,6 @@ public class Blog extends BaseBean {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_USER_ID"))
-//	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
 	private BlogUser user;
 
 	private Byte status;
