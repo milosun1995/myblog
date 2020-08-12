@@ -155,7 +155,7 @@ public class PageWrapper<T> {
     }
 
     private static <T> PageImpl<T> getRealSubList(int pageStart, int expectPageEnd, List<T> list, Pageable pageable) {
-        int realPageEnd = (list.size() > expectPageEnd || list.size() == expectPageEnd) ? expectPageEnd + 1 : list.size();
+        int realPageEnd = (list.size() > expectPageEnd) ? expectPageEnd + 1 : list.size();
         return new PageImpl<>(list.subList(pageStart, realPageEnd), pageable, list.size());
     }
 
