@@ -4,15 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public class BaseBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,9 +30,13 @@ public class BaseBean implements Serializable {
 	protected Long id;
 	
 	@Column(name = "CREATE_TIME")
+	@CreatedDate
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date createTime;
 
 	@Column(name = "UPDATE_TIME")
+	@LastModifiedDate
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date updateTime;
 
 	
