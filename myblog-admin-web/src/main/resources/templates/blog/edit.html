@@ -31,8 +31,10 @@
 			  <label>文章标题</label>
 				<div class="field">
 				  <input type="text" name="first-name" placeholder="文章标题" th:field="*{title}">
-				  <input type="hidden"  th:field="*{id}"/>
-				  <input type="hidden"  th:field="*{user.id}"/>
+				  <input type="hidden"  th:field="*{id}"/><!-- 文章ID -->
+				  <input type="hidden"  th:field="*{user.id}"/><!-- 用户ID -->
+				  <input type="hidden"  th:field="*{createTime}"><!-- 创建时间 -->
+				  <input type="hidden"  th:field="*{updateTime}"><!-- 修改时间 -->
 				</div>
 			</div>
 			<div class="field">
@@ -74,7 +76,7 @@
 		  </div>
 		  <div class="ui basic segment"> 
 		  <div class="field" id="test-editormd">
-			<textarea style="display:none;" th:field="*{content}"></textarea>
+			<textarea class="editormd-html-textarea" name="editormd-html-code"  style="display:none;" th:field="*{content}"></textarea>
 		  </div>
 		  </div>
 		  <div class="ui basic column grid segment">

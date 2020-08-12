@@ -63,8 +63,8 @@ public class BlogController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute Blog blog,Model model) {
 		logger.info("Into BlogController save method ..");
-		logger.info("tag : {}",blog.getTagNames());
-		
+		logger.info("tag - {}",blog.getTagNames());
+		logger.info("blog.id - {}",blog.getId());
 		Set<Tag> tags = this.tagService.save(blog.buildTagNames());
 		
 		blog.setTags(tags);

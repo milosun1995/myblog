@@ -55,3 +55,30 @@ body {
 		display: block !important;
 	}
 }
+
+/*-------- 代码块显示样式 ---------*/
+pre{
+	overflow-y:auto;
+	max-height:300px;
+	max-width:700px; 
+}
+/*--------- 滚动条美化 --------------*/
+pre::-webkit-scrollbar-track {
+	-webkit-box-shadow:inset 0 0 2px rgba(0,0,0,0.3);
+	border-radius:10px;
+	background-color:#F5F5F5;
+}
+pre::-webkit-scrollbar {
+	width:6px;
+	background-color:#F5F5F5;
+}
+pre::-webkit-scrollbar-thumb {
+	border-radius:10px;
+	-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+	background-color:#00b5ad;
+}
+/*--------- 代码块宽度设定 --------------*/
+ol.linenums{
+	overflow-x:auto;
+	width:980px;
+}

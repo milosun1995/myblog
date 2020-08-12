@@ -190,9 +190,10 @@
 		    		var testEditor = editormd("test-editormd", {
 						width   : "100%",
 						height  : 640,
-						//syncScrolling : "single",
+						syncScrolling : "single",
 						path    : "/plugins/editor.md/lib/",
-					
+						saveHTMLToTextarea: true,//保存为html(!!!)
+						htmlDecode: "style,script,iframe|on*",//html过滤
 						onfullscreen : function() {
 							// alert("onfullscreen");
 							$("#test-editormd").addClass("editoronfullscreen")
