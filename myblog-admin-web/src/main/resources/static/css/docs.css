@@ -210,7 +210,8 @@ body > .content  {
 }
 #example .container {
   position: relative;
-  width: 915px;
+/*   width: 915px; */
+  width:80%;
   margin: 0px auto;
 }
 
@@ -637,7 +638,7 @@ body > .content  {
   }
 
   #example > .pusher > .full.height {
-    flex: 1;
+/*     flex: 1; */
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -645,3 +646,14 @@ body > .content  {
     flex: none;
   }
 }
+
+/********* Page·ÖÒ³ÑùÊ½ *************/
+ #my-pagination .ui.pagination.menu .item {
+   font-size: .88571429rem;
+   background-color: #646e7742;
+   color: #6b6767;
+   text-shadow: none;
+   background-image: none
+ }
+ 
+ 

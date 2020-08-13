@@ -1,260 +1,169 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)#elements/button.html -->
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-  <!-- Standard Meta --> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> 
-  <link rel="image_src" type="image/jpeg" href="./Button _ Semantic UI_files/logo.png" /> 
-  <!-- Site Properities --> 
-  <meta name="generator" content="DocPad v6.78.1" /> 
-  <title>Button | Semantic UI</title> 
-  <meta name="description" content="A button indicates a possible user action" /> 
-  <meta name="keywords" content="html5, ui, library, framework, javascript" /> 
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-  <script src="js/docs.js"></script> 
-  <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/docs.css" /> 
-  
-  <script>
-    $(document).ready(function() {
-		$('.dropdown').dropdown({
-			// you can use any ui transition
-			transition: 'drop'
-		});
-	});
-  </script>
- </head> 
- <body id="example" class="pushable index" ontouchstart=""> 
-  <div class="ui vertical inverted sidebar menu left" id="toc" style=""> 
-   <div class="item"> 
-    <a class="ui logo icon image" href="#"> <img src="images/logo.png" /> </a> 
-    <a href="#"><b>UserName</b></a> 
-   </div> 
-   <span class="item" href="#"> 
-	<div class="ui  icon input">
-		<input type="text" placeholder="Search ...">
-		<i class="search icon"></i>
-	</div>
-	</span> 
-   <a class="item" href="index.html"> <i class="download icon"></i> <b>Home</b> </a> 
-   <a class="item" href="blog-add.html"> <i class="cubes icon"></i> <b>发布博客</b> </a> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     博客管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Reset </a> 
-     <a class="item" href="#"> Site </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     分类管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     标签管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     评论管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     留言管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     工具管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-   <div class="item"> 
-    <div class="ui small  inverted header">
-     系统管理
-    </div> 
-    <div class="menu"> 
-     <a class="item" href="#"> Breadcrumb </a> 
-     <a class="item" href="#"> Form </a> 
-    </div> 
-   </div> 
-  </div> 
-  <div class="ui black big launch right attached fixed button"> 
-   <i class="content icon"></i> 
-   <span class="text">Menu</span> 
-  </div> 
-
- 
-  <nav class="ui fixed inverted borderless main menu"> 
-   <div class="container"> 
-    <a class="launch item"> <i class="content icon"></i> Menu </a> 
-    <div class="title item"> 
-     <b>Home</b>
-    </div> 
-    <div class="right menu"> 
-	  <div class="ui pointing dropdown link item">
-		<span class="text">快捷操作</span>
-		<i class="dropdown icon"></i>
-		<div class="menu">
-		  <a class="item" href="blog-add.html"><i class="alternate music icon"></i>发表博客</a>
-		  <a class="item" href="#"><i class="alternate music icon"></i>查看留言</a>
-		  <a class="item" href="#"><i class="alternate music icon"></i>查看评论</a>
-		  <a class="item" href="#"><i class="alternate music icon"></i>修改密码</a>
-		  <a class="item" href="https://www.baidu.com" target="_blank"><i class="alternate music icon"></i>Logout</a>
-		</div>
-	  </div>	
-	  <a class="popup icon music item" > <i class="alternate music icon"></i> </a> 
-      <a class="popup icon github item"> <i class="alternate github icon"></i> </a> 
-    </div> 
-   </div> 
-  </nav>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/_fragments :: head(~{::title})">
+    <title>博客管理</title>
+</head>
+<body id="example" class="pushable index" ontouchstart="">
+	<!-- 左菜单导航-->
+	<aside th:replace="template/_fragments :: menu(1.1)" ></aside>
+	<nav th:replace="template/_fragments :: nav(n='博客管理')" ></nav>
+	<!--中间内容-->
   <div class="pusher"> 
    <div class="full height"> 
 		<div class=" header segment"> 
 			<div class="ui container"> 
 				<h2 class="ui header">
-				  <i class="alternate music icon"></i>
+				  <i class="edit icon"></i>
 				  <div class="content">
-					发布博客
-					<div class="sub header">Check out our plug-in marketplace</div>
+					博客管理
+					<div class="sub header">笔耕不辍，记录生活点点滴滴</div>
 				  </div>
 				</h2>
 				<div class="ui divider"></div> 
-				<div class="ui two column doubling stackable grid">
-					<div class="column">
-						<div class="ui secondary  menu">
-						  <a class=" active item">
-							新增
-						  </a>
-						  <a class="item">
-							删除
-						  </a>
-						  <a class="item">
-							Friends
-						  </a>
-						</div>
-					</div>
-					  <div class="right aligned column">
-					  <div class="menu">
-						<div class="item">
-						  <div class="ui icon input">
-							<input type="text" placeholder="Search...">
-							<i class="search link icon"></i>
-						  </div>
-						</div>
-					  </div>
-					 </div>
-				</div>
 			</div>	
 		</div>
-		<div class="ui container">
-			<div class="ui padded  vertical segment">
-			  <div class="column">
-				<table class="ui right aligned celled table">
-				  <thead>
-					<th class="left aligned">Person</th>
-					<th>Calories</th>
-					<th>Fat</th>
-					<th>Protein</th>
-				  </thead>
-				  <tbody>
-					<tr>
-					  <td class="left aligned">Drema</td>
-					  <td class="positive">15</td>
-					  <td class="negative">26g</td>
-					  <td class="warning">8g</td>
-					</tr>
-					<tr class="positive">
-					  <td class="left aligned">Nona</td>
-					  <td>11</td>
-					  <td>21g</td>
-					  <td>16g</td>
-					</tr>
-					<tr class="negative">
-					  <td class="left aligned">Isidra</td>
-					  <td>34</td>
-					  <td>43g</td>
-					  <td>11g</td>
-					</tr>
-					<tr class="warning">
-					  <td class="left aligned">Bart</td>
-					  <td>41</td>
-					  <td>40g</td>
-					  <td>30g</td>
-					</tr>
-					<tr class="selected">
-					  <td class="left aligned">Nguyet</td>
-					  <td>41</td>
-					  <td>44g</td>
-					  <td>28g</td>
-					</tr>
-				  </tbody>
-				</table>
+	 </div> 
+	<div class="ui container segment">
+		<!-- 查询条件 -->
+		<form class="ui form" action="#" id="blog-form" th:action="@{/blog/save}" th:object="${blog}" method="post">
+		<div class="ui black segment" id ="fields"> 
+		  <div class="three fields">
+			<div class="field">
+			  <label>文章标题</label>
+				<div class="field">
+				  <input type="text" name="first-name" placeholder="文章标题" th:field="*{title}">
+				</div>
+			</div>
+			<div class="field">
+			  <label>分类</label>
+			  <div class="ui selection dropdown">
+				<input type="hidden" th:field="*{category.id}">
+				<div class="default text" >分类</div>
+				<i class="dropdown icon"></i>
+				<div class="menu" >
+				  <th:block th:unless="${null == categories}">
+				  	<th:block th:each="category : ${categories}">
+					  <div class="item" data-value="male"  th:attr="data-value=${category.id}" th:text="${category.categoryName}">Male</div>
+				  	</th:block>
+				  </th:block>
+				</div>
 			  </div>
 			</div>
-	    </div>
+			<div class="field">
+				<label>文章标签</label>
+				<div class="ui fluid multiple search selection dropdown">
+				  <input type="hidden" th:field="*{tagNames}">
+				  <i class="dropdown icon"></i>
+				  <th:block th:each="blogTag: *{tags}">
+				  <a class="ui label transition visible" th:attr="data-value=${blogTag.tagName}" style="display: inline-block !important;">
+				  <th:block th:text="${blogTag.tagName}"></th:block>
+				  <i class="delete icon"></i></a>
+				  </th:block>
+				  <div class="default text">Saved Contacts</div>
+				  <div class="menu" id="tags-menu">
+	  				  <th:block th:unless="${null == tags}">
+					  	<th:block th:each="tag : ${tags}">
+						  		<div class="item" th:attr="data-value=${tag.tagName}, data-text=${tag.tagName} " th:text="${tag.tagName}"></div>
+					  	</th:block>
+					  </th:block>
+				  </div>
+				</div>
+		  	</div>
+		  </div>
+		  </div>
+		</form>
 		
-	 </div>    
-    <div class="ui inverted black footer vertical segment"> 
-     <div class="container"> 
-      <div class="ui stackable inverted divided relaxed grid"> 
-       <div class="eight wide column"> 
-        <h3 class="ui inverted header">Help Make Semantic UI Better</h3> 
-        <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p> 
-        <form action="#" method="post" target="_top"> 
-         <input type="hidden" name="cmd" value="_s-xclick" /> 
-         <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL" /> 
-         <button type="submit" class="ui teal button">Donate Today</button> 
-        </form> 
-       </div> 
-       <div class="four wide column"> 
-        <h5 class="ui teal inverted header">Contribute</h5> 
-        <div class="ui inverted link list"> 
-         <a class="item" href="#" target="_blank">Translation Hub</a> 
-         <a class="item" href="#" target="_blank">Issue Tracker</a> 
-         <a class="item" href="#cla.html" target="_blank">CLA</a> 
-         <a class="disabled item">Create Themes</a> 
-        </div> 
-       </div> 
-       <div class="four wide column"> 
-        <h5 class="ui teal inverted header">Semantic Network</h5> 
-        <div class="ui inverted link list"> 
-         <a class="item" href="#">Legacy Docs</a> 
-         <a class="item" href="#">Learn Semantic</a> 
-         <a class="disabled item">Semantic Themes</a> 
-         <a class="disabled item">Semantic Layouts</a> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-  
-  </div>
- </body>
+		<!-- 控制按钮 -->
+		<div class="ui middle aligned divided list">
+		  <div class="item">
+		    <div class="right floated content">
+		      <div class="ui mini blue button">查询</div>
+		    </div>
+		    <div class="left floated content">
+		      <div class="ui mini red button">删除</div>
+		      <div class="ui mini teal button">新增</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- 列表显示 -->
+		<table class="ui inverted grey table">
+		  <thead>
+		    <tr>
+		    	<th>
+		    		<div class="required">
+				      <div class="ui checkbox">
+				        <input type="checkbox" tabindex="0" class="hidden">
+				      </div>
+				    </div>
+		    	</th>
+			    <th>标题</th>
+			    <th>分类</th>
+			    <th>标签</th>
+			    <th>描述</th>
+			    <th>发表时间</th>
+			    <th>操作</th>
+		  	</tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="blog : ${blogs}">
+		      <td>
+			      <div class="ui checkbox">
+			        <input type="checkbox" tabindex="0" class="hidden">
+			      </div>
+		      </td>
+		      <td th:text="${blog.title}"></td>
+		      <td th:text="${blog.category.categoryName}"></td>
+		      <td th:text="${blog.tagNames}"></td>
+		      <td th:text="${blog.description}"></td>
+		      <td th:text="${blog.updateTime}"></td>
+		      <td>
+		      	<div class="ui mini red button">删除</div>
+		      	<div class="ui mini orange button">修改</div>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+		<!-- 分页 -->
+		<div id="my-pagination">
+			<div class="ui vertically padded page grid">
+				<div class=" ui  center aligned sub header column">
+	 				<div class="ui pagination menu">
+					  <div class="item ">
+					  		<span th:class="${page.hasPreviousPage}? '' : 'disabled'" th:if='${not page.hasPreviousPage}'><i class="left arrow icon"></i>上页</span>
+							<a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'><i class="left arrow icon"></i>上页</a>
+					  </div>
+					  <div class="item" th:each='item : ${page.items}'>
+						<span th:if='${item.current}' th:text='${item.number}'>1</span>
+						<a th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span th:text='${item.number}'>1</span></a>
+					  </div>
+					  <div class="item">
+					  	<span th:class="${page.hasNextPage}? '' : 'disabled'" th:if='${not page.hasNextPage}'>下页<i class="right arrow icon"></i></span>
+					    <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>下页&nbsp;&nbsp;<i class="right arrow icon"></i></a>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<!-- 统计分页 -->
+			<div class="ui vertically padded page grid">
+				<div class=" column">
+				  <p class="ui  center aligned sub header">当前第<span th:text="${page.number}">1</span>页，总<span th:text="${page.totalPages}">1</span>页，共<span th:text="${page.totalElements}">1</span>条记录</p>
+				  <div class="ui divider"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+   </div>
+	
+	<!--底部footer-->
+	<footer th:replace="template/_fragments :: footer"> 
+	
+	</footer>
+
+	<!--导入的script-->
+	<th:block th:replace="template/_fragments :: script">
+	
+	</th:block>
+</body>
 </html>

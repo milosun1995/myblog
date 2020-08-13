@@ -42,7 +42,7 @@
 		     博客管理
 		    </div> 
 		    <div class="menu"> 
-		     <a class="item" href="#"> Reset </a> 
+		     <a class="item" href="/blog/query" th:classappend="${n==1.1}?'active'" > Management </a> 
 		     <a class="item" href="#"> Site </a> 
 		    </div> 
 		   </div> 
@@ -234,6 +234,9 @@
 			        $('#blog-form').submit();
 			      });
 	
+			    //semantic js click checkbox
+			    $('.ui.checkbox').checkbox();
+				
 			});
 		    
 		    //tags-input
