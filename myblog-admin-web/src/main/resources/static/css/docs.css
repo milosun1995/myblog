@@ -650,8 +650,8 @@ body > .content  {
 /********* Page·ÖÒ³ÑùÊ½ *************/
  #my-pagination .ui.pagination.menu .item {
    font-size: .88571429rem;
-   background-color: #646e7742;
-   color: #6b6767;
+   background-color: #fff;
+   color: #000000;
    text-shadow: none;
    background-image: none
  }

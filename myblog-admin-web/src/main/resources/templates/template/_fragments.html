@@ -182,6 +182,7 @@
 		<script src="/plugins/editor.md/editormd.min.js" th:href="@{/plugins/editor.md/editormd.min.js}"></script>
 		<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 		<script src="/js/docs.js" th:href="@{/js/docs.js}"></script> 
+		<script src="/js/customized-semantic.js" th:href="@{/js/customized-semantic.js}"></script> 
 	
 		<script>
 		    $(document).ready(function() {
@@ -208,35 +209,7 @@
 						}
 					});
 		    	}
-				
-
-				$('.dropdown').dropdown({
-					// you can use any ui transition
-					transition: 'drop',
-					message: {
-		    		    addResult     : 'Add <b>{term}</b>',
-		    		    count         : '{count} selected',
-		    		    maxSelections : 'Max {maxCount} selections',
-		    		    noResults     : '<a class="ui blue label"  onclick="tagsInput(\'{term}\')">Add</a>',
-		    		    serverError   : 'There was an error contacting the server'
-		    		  },
-		    		onAdd: function(e, t, n) {
-		    		  },
-		    		onRemove: function(e, t, n) {
-		    		},
-					onNoResults: function(e) {
-					    return ! 0
-					},
-				});
-				
-				//博客发布页面
-			    $('#publish-btn').click(function () {
-			        $('#blog-form').submit();
-			      });
-	
-			    //semantic js click checkbox
-			    $('.ui.checkbox').checkbox();
-				
+			    
 			});
 		    
 		    //tags-input

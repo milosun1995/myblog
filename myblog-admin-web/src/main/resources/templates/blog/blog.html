@@ -91,11 +91,9 @@
 		  <thead>
 		    <tr>
 		    	<th>
-		    		<div class="required">
-				      <div class="ui checkbox">
-				        <input type="checkbox" tabindex="0" class="hidden">
-				      </div>
-				    </div>
+			      <div class="ui master checkbox">
+			        <input type="checkbox" tabindex="0" class="hidden" name="ids">
+			      </div>
 		    	</th>
 			    <th>标题</th>
 			    <th>分类</th>
@@ -108,8 +106,8 @@
 		  <tbody>
 		    <tr th:each="blog : ${blogs}">
 		      <td>
-			      <div class="ui checkbox">
-			        <input type="checkbox" tabindex="0" class="hidden">
+			      <div class="ui child checkbox">
+			        <input type="checkbox" tabindex="0" class="hidden" name="ids">
 			      </div>
 		      </td>
 		      <td th:text="${blog.title}"></td>
@@ -153,6 +151,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
    </div>
 	
