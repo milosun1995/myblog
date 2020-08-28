@@ -25,23 +25,6 @@
       });
 
     //semantic js click checkbox
-//    $('.ui.checkbox').checkbox();
-	
-    
-    
-//    $('.master.checkbox').checkbox({
-//      // check all children
-//      onChecked: function() {
-//        var $childCheckbox  = $('tr').siblings().find('.checkbox');
-//        console.log($childCheckbox);
-//        $childCheckbox.checkbox('check');
-//      },
-//      // uncheck all children
-//      onUnchecked: function() {
-//        var $childCheckbox  = $('tr').siblings().find('.checkbox');
-//        $childCheckbox.checkbox('uncheck');
-//      }
-//    });
     $('.master.checkbox').checkbox({
         // check all children
         onChecked: function() {
@@ -91,5 +74,56 @@
       }
     });
     
+    //批量删除赋值操作
+    $('.child.checkbox').checkbox().checkbox({
+	 	onChecked: function() {
+	 		//console.log('onChecked called<br>');
+	    },
+	    onUnchecked: function() {
+	    	//console.log('onUnchecked called<br>');
+	    },
+	    onEnable: function() {
+	    	//console.log('onEnable called<br>');
+	    },
+	    onDisable: function() {
+	    	//console.log('onDisable called<br>');
+	    },
+	    onDeterminate: function() {
+	    	//console.log('onDeterminate called<br>');
+	    },
+	    onIndeterminate: function() {
+	    	// console.log('onIndeterminate called<br>');
+	    },
+	    onChange: function() {
+	      	// console.log('onChange called<br>');	
+	      	 var checkedId="";
+		     $('input[name=ids]').each(function() {
+		    	if(this.checked == true){
+		    		checkedId+=this.value+",";
+		    	}
+		     });
+		     
+		     $('#btnBatchDel').attr('data-ids',checkedId);
+		     console.log(checkedId);
+	    }
+    });
+	
+    //批量删除模态框
+	$('#btnBatchDel').click(function() {
+		var url = $(this).data("url");
+		var ids = $(this).data("ids");
+		 console.log($(this).data("url"));
+		 $('.ui.tiny.test.modal').modal({
+		      closable  : false,
+		      onDeny    : function(){
+		        //window.alert('Wait not yet!');
+		      },
+		      onApprove : function() {
+		        //window.alert('Approved!');
+		    	  window.location.replace(url+"="+ids);
+		      }
+		    }).modal('show');
+	 });
+	
     
 })(jQuery); 

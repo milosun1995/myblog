@@ -186,6 +186,7 @@
 	
 		<script>
 		    $(document).ready(function() {
+		    	
 		    	//是否激活编辑器功能
 		    	if($("#test-editormd").val()!=null){
 		    		var testEditor = editormd("test-editormd", {
@@ -196,26 +197,31 @@
 						saveHTMLToTextarea: true,//保存为html(!!!)
 						htmlDecode: "style,script,iframe|on*",//html过滤
 						onfullscreen : function() {
-							// alert("onfullscreen");
 							$("#test-editormd").addClass("editoronfullscreen")
-							//$("#test-editormd").addClass("segment")
 							 console.log("onfullscreen =>", this, this.id, this.settings);
 						},
 
 						onfullscreenExit : function() {
 							$("#test-editormd").removeClass("editoronfullscreen")
-							// alert("onfullscreenExit");
 							 console.log("onfullscreenExit =>", this, this.id, this.settings);
 						}
 					});
 		    	}
-			    
+		    	
+				$("#btnQuery").click(function() {
+					$("#form1").attr("action", "./query");
+					$('#form1').submit();
+				});
+				
 			});
+		    
+		    
 		    
 		    //tags-input
 		    function tagsInput(term){
 		    	$("#tags-menu").prepend('<div class="item" data-value='+term+' data-text='+term+'>'+term+'</div>');
 		    }
+		    
 		 </script>
 	</th:block>
 </body>

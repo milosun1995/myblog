@@ -25,7 +25,7 @@
 	 </div> 
 	<div class="ui container segment">
 		<!-- 查询条件 -->
-		<form class="ui form" action="#" id="blog-form" th:action="@{/blog/save}" th:object="${blog}" method="post">
+		<form class="ui form" action="#" id="form1"  th:object="${blog}" method="post">
 		<div class="ui black segment" id ="fields"> 
 		  <div class="three fields">
 			<div class="field">
@@ -80,7 +80,7 @@
 		      <div class="ui mini blue button">查询</div>
 		    </div>
 		    <div class="left floated content">
-		      <div class="ui mini red button">删除</div>
+		      <button class="ui mini red button" id="btnBatchDel" data-url="123" data-ids="">批量删除</button>
 		      <div class="ui mini teal button">新增</div>
 		    </div>
 		  </div>
@@ -92,7 +92,7 @@
 		    <tr>
 		    	<th>
 			      <div class="ui master checkbox">
-			        <input type="checkbox" tabindex="0" class="hidden" name="ids">
+			        <input type="checkbox" tabindex="0" class="hidden" name="checkedIds">
 			      </div>
 		    	</th>
 			    <th>标题</th>
@@ -107,7 +107,7 @@
 		    <tr th:each="blog : ${blogs}">
 		      <td>
 			      <div class="ui child checkbox">
-			        <input type="checkbox" tabindex="0" class="hidden" name="ids">
+			        <input type="checkbox" tabindex="0" class="hidden" name="ids" th:value=${blog.id}>
 			      </div>
 		      </td>
 		      <td th:text="${blog.title}"></td>
@@ -154,7 +154,21 @@
 		
 	</div>
    </div>
-	
+
+	<div class="ui tiny test modal">
+		<div class="header">Delete Your Account</div>
+		<div class="content">
+			<p>Are you sure you want to delete your account</p>
+		</div>
+		<div class="actions">
+			<div class="ui negative button">No</div>
+			<div class="ui positive right labeled icon button">
+				Yes <i class="checkmark icon"></i>
+			</div>
+		</div>
+	</div>
+
+
 	<!--底部footer-->
 	<footer th:replace="template/_fragments :: footer"> 
 	
