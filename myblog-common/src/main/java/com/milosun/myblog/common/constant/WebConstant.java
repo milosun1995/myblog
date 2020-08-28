@@ -6,6 +6,16 @@ public class WebConstant {
 		throw new IllegalStateException("WebConstantEnum class");
 	}
 	
+	//Request
+	public static final String ADD_REQUEST 						= "addUrl"; 
+	public static final String EDIT_REQUEST 					= "editUrl"; 
+	public static final String QUERY_REQUEST 					= "queryUrl"; 
+	public static final String BATCH_DELETE_REQUEST				= "batchDeleteUrl";
+	
+	//Redirect
+	public static final String QUERY_REDIRECT					= "redirect:query";
+	
+	
 	//HTML
 	public static final String INDEX_HTML 						= "index"; 
 	public static final String BLOG_HTML 						= "blog"; 

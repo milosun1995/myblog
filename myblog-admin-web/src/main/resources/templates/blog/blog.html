@@ -80,8 +80,8 @@
 		      <div class="ui mini blue button">查询</div>
 		    </div>
 		    <div class="left floated content">
-		      <button class="ui mini red button" id="btnBatchDel" data-url="123" data-ids="">批量删除</button>
-		      <div class="ui mini teal button">新增</div>
+		      <button class="ui mini red button" id="btnBatchDel" th:attr="data-url=${batchDeleteUrl}"  data-ids="">批量删除</button>
+		      <a class="ui mini teal button" th:href="@{${addUrl}}">新增</a>
 		    </div>
 		  </div>
 		</div>
@@ -116,8 +116,8 @@
 		      <td th:text="${blog.description}"></td>
 		      <td th:text="${blog.updateTime}"></td>
 		      <td>
-		      	<div class="ui mini red button">删除</div>
-		      	<div class="ui mini orange button">修改</div>
+		      	<button class="ui mini red button btnDel"  th:attr="data-id=${blog.id},data-url=${batchDeleteUrl}">删除</button>
+		      	<a class="ui mini orange button" th:href="@{${editUrl}+${blog.id}}">修改</a>
 		      </td>
 		    </tr>
 		  </tbody>

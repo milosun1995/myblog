@@ -16,4 +16,6 @@ public interface AdminBlogService {
 	public List<Blog> findAll();
 	
 	public Blog save(Blog blog);
+	
+	public void deleteBatch(List<Long> ids);
 }

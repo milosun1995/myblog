@@ -1,5 +1,7 @@
 package com.milosun.myblog.admin.web.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.milosun.myblog.admin.interfaces.AdminBlogService;
 import com.milosun.myblog.admin.interfaces.AdminCategoryService;
@@ -30,7 +33,7 @@ import com.milosun.myblog.pojo.Tag;
 
 @Controller
 @RequestMapping(value = "/blog")
-public class BlogController {
+public class BlogController extends BaseController {
 	private static Logger logger = LoggerFactory.getLogger(BlogController.class);
 	
 	@Autowired
@@ -41,9 +44,7 @@ public class BlogController {
 	
 	@Autowired
 	private AdminCategoryService categoryService;
-	
-	
-	
+
 	
 	@GetMapping("/query")
 	public String query(Model model,@PageableDefault(value = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable) {
@@ -56,16 +57,17 @@ public class BlogController {
 		List<Tag> tags =this.tagService.findAll();
 		List<Category> categories = this.categoryService.findAll();
 		
+		this.prepareConfigModel(model);
 		
 		model.addAttribute("tags", tags);
 		model.addAttribute("categories", categories);
 		
 		model.addAttribute(WebConstant.BLOGS_KEY, blogPage);
 		model.addAttribute(WebConstant.PAGE_KEY, page);
-		model.addAttribute("blog", new Blog());  //返回一个blog对象给前端th:object	
+		model.addAttribute("blog", new Blog());  //返回一个blog对象给前端th:object
+		
 		return "blog/"+WebConstant.BLOG_HTML;
 	}
-	
 	
 	
 	@GetMapping("/edit/{id}")
@@ -103,7 +105,26 @@ public class BlogController {
 		
 		this.blogService.save(blog);
 		
-		return "blog/edit";
+		return  recallQuery(model);
 	}
+	
+	
+	@GetMapping("/batchDelete")
+	public String batchDelete(@RequestParam("ids") String ids, Model model) {
+		logger.info("Into BlogController batchDelete method ..");
+		
+		String[] idArr = ids.split(",");
+		List<Long> idList = new ArrayList<>();
+		Arrays.asList(idArr).forEach(a-> idList.add(new Long(a)));
+		
+		this.blogService.deleteBatch(idList);
+		
+		return  recallQuery(model);
+	}
+	
+	
+	 private  String recallQuery(Model model) {
+		 return WebConstant.QUERY_REDIRECT;
+	 }
 	
 }

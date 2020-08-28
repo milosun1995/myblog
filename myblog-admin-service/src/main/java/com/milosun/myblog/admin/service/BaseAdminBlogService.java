@@ -28,24 +28,38 @@ public class BaseAdminBlogService implements AdminBlogService {
 	}
 
 	/**
-	 * 博客列表显示
+	 * 博客列表分页显示
 	 * @param pageable
 	 * @return
 	 */
 	public Page<Blog> findAll(Pageable pageable) {
 		return this.blogDao.findAll(pageable);
 	}
-
+	
+	/**
+	 * 查询列表
+	 */
 	@Override
 	public List<Blog> findAll() {
 		return this.blogDao.findAll();
 	}
 
+	/**
+	 * 保存文章
+	 */
 	@Override
 	@Transactional
 	public Blog save(Blog blog){
 		return this.blogDao.save(blog);
 	}
-	
+
+	/**
+	 * 批量删除
+	 */
+	@Override
+	@Transactional
+	public void deleteBatch(List<Long> ids) {
+		this.blogDao.deleteBatch(ids);
+	}
 	
 }
