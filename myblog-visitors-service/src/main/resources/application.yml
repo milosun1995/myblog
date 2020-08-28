@@ -18,5 +18,5 @@ spring:
 logging:  #日志级别
   level:
     root: info
-    com.blog: debug
+    com.milosun: debug
   file: log/blog-dev.log
