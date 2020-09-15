@@ -12,16 +12,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.util.StringUtils;
+
+import com.milosun.myblog.pojo.validate.annotation.EntityIdNotNull;
 
 @Entity
 @Table(name = "TB_BLOG")
 public class Blog extends BaseBean {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@NotBlank(message = "{blog.title.notBlank}")
 	private String title;
 
 	private String description;
@@ -32,9 +38,12 @@ public class Blog extends BaseBean {
 
 	private Long countViews;
 
+	@NotBlank(message = "{blog.content.notBlank}")
 	private String content;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	
+	@EntityIdNotNull(message = "{blog.category.categoryName.notBlank}")
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORY_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_CATEGORY_ID"))
 	private Category category;
 
@@ -42,6 +51,7 @@ public class Blog extends BaseBean {
 	@JoinTable(name = "TB_BLOG_TAG", joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
 	private Set<Tag> tags;
 
+	@NotBlank(message = "{blog.tagNames.notBlank}")
 	private String tagNames;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -59,6 +69,7 @@ public class Blog extends BaseBean {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
 		builder.append("Blog [title=");
 		builder.append(title);
 		builder.append(", description=");

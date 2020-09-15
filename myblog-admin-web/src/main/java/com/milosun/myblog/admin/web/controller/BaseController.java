@@ -16,4 +16,13 @@ public class BaseController {
 		model.addAttribute(WebConstant.BATCH_DELETE_REQUEST, "./batchDelete?ids=");
 		model.addAttribute(WebConstant.EDIT_REQUEST, "./edit/");
 	}
+	 
+	 
+	 protected  String recallQuery(Model model) {
+		 return WebConstant.QUERY_REDIRECT;
+	 }
+	 
+	 protected  String recallEdit(Model model) {
+		 return WebConstant.QUERY_EDIT;
+	 }
 }

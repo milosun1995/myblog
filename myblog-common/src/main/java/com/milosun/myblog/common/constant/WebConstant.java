@@ -14,6 +14,7 @@ public class WebConstant {
 	
 	//Redirect
 	public static final String QUERY_REDIRECT					= "redirect:query";
+	public static final String QUERY_EDIT						= "redirect:edit/-1";
 	
 	
 	//HTML

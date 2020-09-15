@@ -8,13 +8,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+
 @Entity
 @Table(name = "TB_CATEGORY")
 public class Category extends BaseBean {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@NotBlank
 	private String categoryName;
+	
 	private String categoryRank;
 	private Byte isDeleted;
 	
@@ -26,6 +31,25 @@ public class Category extends BaseBean {
 	public Category() {
 		super();
 	}
+
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
+		builder.append("Category [categoryName=");
+		builder.append(categoryName);
+		builder.append(", categoryRank=");
+		builder.append(categoryRank);
+		builder.append(", isDeleted=");
+		builder.append(isDeleted);
+		builder.append(", blogs=");
+		builder.append(blogs);
+		builder.append("]");
+		return builder.toString();
+	}
+
+
 
 	public String getCategoryName() {
 		return categoryName;

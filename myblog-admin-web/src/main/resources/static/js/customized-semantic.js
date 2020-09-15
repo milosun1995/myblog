@@ -122,5 +122,11 @@
 		    }).modal('show');
 	 });
 	
+	//错误提示模态框
+	$('.message .close')
+	  .on('click', function() {
+	    $(this).closest('.message').transition('fade');
+	  })
+	;
     
 })(jQuery); 

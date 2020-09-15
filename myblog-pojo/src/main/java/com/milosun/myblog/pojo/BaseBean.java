@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -25,7 +26,7 @@ public class BaseBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	protected Long id;
 	
@@ -39,11 +40,15 @@ public class BaseBean implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date updateTime;
 
-	
 	public BaseBean() {
-		super();
 	}
 	
+	public BaseBean(@NotNull Long id, Date createTime, Date updateTime) {
+		super();
+		this.id = id;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+	}
 
 	@Override
 	public String toString() {

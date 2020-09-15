@@ -20,12 +20,6 @@
 
 		<dependency>
 			<groupId>com.milosun</groupId>
-			<artifactId>myblog-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.milosun</groupId>
 			<artifactId>myblog-visitors-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
