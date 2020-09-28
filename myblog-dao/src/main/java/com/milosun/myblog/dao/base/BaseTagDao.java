@@ -7,6 +7,6 @@ import com.milosun.myblog.pojo.Tag;
 
 public interface BaseTagDao extends JpaRepository<Tag, Long>{
 	
-	public Tag findTagById(Long id);
+	Tag findTagById(Long id);
 
 }

@@ -7,6 +7,6 @@ import com.milosun.myblog.pojo.Blog;
 
 public interface BaseBlogDao extends JpaRepository<Blog, Long>{
 	
-	public Blog findBlogById(Long id);
+	Blog findBlogById(Long id);
 
 }

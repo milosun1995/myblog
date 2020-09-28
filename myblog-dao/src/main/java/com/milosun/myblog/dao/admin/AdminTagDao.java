@@ -8,5 +8,5 @@ import com.milosun.myblog.pojo.Tag;
 @Repository
 public interface AdminTagDao extends BaseTagDao{
 
-	public Tag findTagByTagName(String tagName);
+	Tag findTagByTagName(String tagName);
 }

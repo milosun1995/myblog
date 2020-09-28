@@ -8,5 +8,5 @@ import com.milosun.myblog.pojo.Blog;
 @Repository
 public interface VisitorsBlogDao extends BaseBlogDao{
 
-	public Blog findBlogById(Long id);
+	Blog findBlogById(Long id);
 }

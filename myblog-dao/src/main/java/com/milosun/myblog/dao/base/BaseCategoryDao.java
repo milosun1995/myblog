@@ -6,6 +6,6 @@ import com.milosun.myblog.pojo.Category;
 
 public interface BaseCategoryDao extends JpaRepository<Category, Long>{
 	
-	public Category findCategoryById(Long id);
+	Category findCategoryById(Long id);
 	
 }
