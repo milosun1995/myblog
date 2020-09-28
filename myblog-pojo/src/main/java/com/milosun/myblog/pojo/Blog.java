@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.util.StringUtils;
@@ -26,7 +25,7 @@ import com.milosun.myblog.pojo.validate.annotation.EntityIdNotNull;
 public class Blog extends BaseBean {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@NotBlank(message = "{blog.title.notBlank}")
 	private String title;
 
@@ -41,7 +40,6 @@ public class Blog extends BaseBean {
 	@NotBlank(message = "{blog.content.notBlank}")
 	private String content;
 
-	
 	@EntityIdNotNull(message = "{blog.category.categoryName.notBlank}")
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORY_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_CATEGORY_ID"))
@@ -65,7 +63,7 @@ public class Blog extends BaseBean {
 	public Blog() {
 		super();
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -193,10 +191,10 @@ public class Blog extends BaseBean {
 	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
-	
-	//逗号分隔处理tagName
-	public List<String> buildTagNames(){
-		if(StringUtils.isEmpty(this.tagNames)) {
+
+	// 逗号分隔处理tagName
+	public List<String> buildTagNames() {
+		if (StringUtils.isEmpty(this.tagNames)) {
 			return Collections.emptyList();
 		}
 		return Arrays.asList(this.tagNames.split(","));
