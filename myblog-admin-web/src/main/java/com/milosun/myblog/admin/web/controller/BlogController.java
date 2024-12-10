@@ -126,7 +126,7 @@ public class BlogController extends BaseController {
 		
 		this.blogService.save(blog);
 		
-		return  recallQuery(model);
+		return recallQuery(model);
 	}
 	
 	

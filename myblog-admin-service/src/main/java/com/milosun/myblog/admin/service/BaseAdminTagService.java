@@ -63,11 +63,9 @@ public class BaseAdminTagService implements AdminTagService {
 		});
 		
 		//合并Tag集合,保存数据库
-		if(insertTags.addAll(updateTags)) {
-			return new HashSet<>(this.tagDao.saveAll(insertTags));
-		}
-		
+		insertTags.addAll(updateTags);
+		return new HashSet<>(this.tagDao.saveAll(insertTags));
 		//返回空集合
-		return Collections.emptySet();
+//		return Collections.emptySet();
 	}
 }

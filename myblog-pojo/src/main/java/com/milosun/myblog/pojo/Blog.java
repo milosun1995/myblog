@@ -41,7 +41,7 @@ public class Blog extends BaseBean {
 	private String content;
 
 	@EntityIdNotNull(message = "{blog.category.categoryName.notBlank}")
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CATEGORY_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_BLOG_CATEGORY_ID"))
 	private Category category;
 
@@ -80,10 +80,6 @@ public class Blog extends BaseBean {
 		builder.append(countViews);
 		builder.append(", content=");
 		builder.append(content);
-		builder.append(", category=");
-		builder.append(category);
-		builder.append(", tags=");
-		builder.append(tags);
 		builder.append(", tagNames=");
 		builder.append(tagNames);
 		builder.append(", user=");
